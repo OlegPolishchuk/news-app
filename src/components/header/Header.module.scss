@@ -1,0 +1,34 @@
+@import "src/common/style/variables";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+
+.logo {
+}
+
+.logo_item {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-right: 15px;
+  color: $whiteColor;
+  background: $themeColor;
+
+  &:nth-child(odd) {
+    transform: rotateZ(3deg);
+  }
+
+  &:nth-child(even) {
+    transform: rotateZ(-3deg);
+  }
+}
+
+.logo_text {
+  font-weight: bold;
+  font-size: 26px;
+  letter-spacing: 3px;
+}

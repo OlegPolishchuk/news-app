@@ -1,0 +1,13 @@
+@import "src/common/style/variables";
+.search {
+  padding: 10px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: $searchBgColor;
+
+  color: $searchTextColor;
+
+  &:focus {
+    border: 1px solid #B9B9B9FF;
+  }
+}

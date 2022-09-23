@@ -1,0 +1,20 @@
+@import "common/style/mixins";
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  border: 0;
+  outline: none;
+}
+
+.app {
+  @include container();
+}
+
