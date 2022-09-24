@@ -7,8 +7,9 @@
   padding: 10px 0;
 }
 
-
 .logo {
+  font-size: 26px;
+  margin: 0;
 }
 
 .logo_item {
@@ -31,4 +32,23 @@
   font-weight: bold;
   font-size: 26px;
   letter-spacing: 3px;
+
+  position: relative;
+}
+
+.logo_text_header {
+  position: relative;
+  z-index: 10;
+}
+
+.logo_text_underline {
+  display: inline-block;
+  height: 10px;
+  width: 100%;
+  background: $categoriesLineColor;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }

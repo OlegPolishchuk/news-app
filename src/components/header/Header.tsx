@@ -9,13 +9,16 @@ import { ReturnComponentType } from 'types';
 export const Header = (): ReturnComponentType => {
   return (
     <header className={s.header}>
-      <div className={s.logo}>
+      <h1 className={s.logo}>
         <span className={s.logo_item}>F</span>
         <span className={s.logo_item}>a</span>
         <span className={s.logo_item}>k</span>
         <span className={s.logo_item}>e</span>
-        <span className={s.logo_text}>BBS</span>
-      </div>
+        <span className={s.logo_text}>
+          <span className={s.logo_text_header}>BBS</span>
+          <span className={s.logo_text_underline} />
+        </span>
+      </h1>
       <Nav />
       <Search />
     </header>

@@ -1,0 +1,13 @@
+@import "src/common/style/variables";
+
+.title {
+  display: flex;
+  position: relative;
+}
+
+.underline {
+  display: inline-block;
+  width: 100%;
+  height: 10px;
+  background: $categoriesLineColor;
+}
