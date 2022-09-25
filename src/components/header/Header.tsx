@@ -2,25 +2,26 @@ import React from 'react';
 
 import s from './Header.module.scss';
 
+import { Logo } from 'components/header/logo/Logo';
 import { Nav } from 'components/header/nav/Nav';
 import { Search } from 'components/header/search/Search';
+import { TodayDate } from 'components/widgets/TodayDate/Date';
+import { Weather } from 'components/widgets/weather/Weather';
 import { ReturnComponentType } from 'types';
 
 export const Header = (): ReturnComponentType => {
   return (
     <header className={s.header}>
-      <h1 className={s.logo}>
-        <span className={s.logo_item}>F</span>
-        <span className={s.logo_item}>a</span>
-        <span className={s.logo_item}>k</span>
-        <span className={s.logo_item}>e</span>
-        <span className={s.logo_text}>
-          <span className={s.logo_text_header}>BBS</span>
-          <span className={s.logo_text_underline} />
-        </span>
-      </h1>
-      <Nav />
-      <Search />
+      <div className={s.header_mainHeader}>
+        <Logo />
+        <Nav />
+        <Search />
+      </div>
+      <div className={s.header_widgets}>
+        <TodayDate />
+        <Weather />
+        <div className={s.header_widget_exchangeCourse} />
+      </div>
     </header>
   );
 };
