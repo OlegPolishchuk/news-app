@@ -1,0 +1,19 @@
+@import "src/common/style/variables";
+
+.exchangeCourse {
+  p {
+    margin: 0;
+  }
+
+  span {
+    margin-left: 10px;
+  }
+}
+
+.exchangeCourse_grown {
+  color: $exchangeGrownColor;
+}
+
+.exchangeCourse_drop {
+  color: $exchangeDropColor
+}

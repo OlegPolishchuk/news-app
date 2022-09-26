@@ -5,4 +5,14 @@ export type Category =
   | 'entertainment '
   | 'health '
   | 'science '
-  | 'technology ';
+  | 'technology '
+  | 'regional'
+  | 'lifestyle'
+  | 'programming'
+  | 'world'
+  | 'finance'
+  | 'academia'
+  | 'politics'
+  | 'opinion'
+  | 'food'
+  | 'game';

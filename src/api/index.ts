@@ -1,8 +1,13 @@
 import { instance } from 'api/config';
 import { BaseResponse } from 'api/types';
+import { DEFAULT_LANGUAGE } from 'globalConstants';
 
 export class NewsAPI {
-  static fetchAllNews(): Promise<BaseResponse> {
-    return instance.get('news').then(res => res.data);
+  static fetchStartingNews(): Promise<BaseResponse[]> {
+    return instance.get('latest-news', {
+      params: {
+        language: DEFAULT_LANGUAGE,
+      },
+    });
   }
 }

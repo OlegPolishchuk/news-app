@@ -3,11 +3,31 @@
 .title {
   display: flex;
   position: relative;
+
+  font-size: 28px;
+  text-transform: uppercase;
 }
 
-.underline {
+.title_firstWord_wrapper {
+  position: relative;
+  margin-right: 8px;
+}
+
+.title_firstWord {
+  position: relative;
+  z-index: 1;
+}
+
+.title_underline {
   display: inline-block;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+
   width: 100%;
-  height: 10px;
+  height: 15px;
   background: $categoriesLineColor;
+
 }
