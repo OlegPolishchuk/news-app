@@ -6,6 +6,7 @@ import s from './News.module.scss';
 
 import { Article } from 'models/article';
 import { ReturnComponentType } from 'types';
+import { getTextFromTag } from 'utils/getTextFromTag';
 
 interface Props {
   article: Article;
@@ -15,6 +16,7 @@ interface Props {
 
 export const News = ({ article, type, revers }: Props): ReturnComponentType => {
   const imgSrc = article.image === 'None' ? newsImg : article.image;
+  const author = getTextFromTag(article.author);
 
   let classNames = '';
 
@@ -42,7 +44,7 @@ export const News = ({ article, type, revers }: Props): ReturnComponentType => {
       <img className={s.news_img} src={imgSrc} alt={article.title} />
       <div className={s.news_description}>
         <div className={s.news_author}>
-          <h3>{article.author}</h3>
+          <h3>{author}</h3>
           <span>{article.published}</span>
         </div>
         <h2 className={s.news_title}>{article.title}</h2>
