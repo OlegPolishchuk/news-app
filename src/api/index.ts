@@ -12,4 +12,14 @@ export class NewsAPI {
       })
       .then(res => res.data);
   }
+
+  static fetchNewsByCategory(category: string): Promise<BaseResponse> {
+    return instance
+      .get(`available/${category}`, {
+        params: {
+          language: DEFAULT_LANGUAGE,
+        },
+      })
+      .then(res => res.data);
+  }
 }

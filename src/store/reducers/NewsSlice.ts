@@ -6,7 +6,7 @@ import { Article } from 'models/article';
 import { HotNews } from 'models/hotNews';
 import { Pagination } from 'models/pagination';
 import { StartPageArticles } from 'models/startPageArticles';
-import { fetchNews } from 'store/reducers/actionCreator';
+import { fetchNews, fetchNewsByCategory } from 'store/reducers/actionCreator';
 
 const initialState: InitialState = {
   pagination: {
@@ -15,7 +15,7 @@ const initialState: InitialState = {
     count: 0,
     total: 0,
   },
-  articles: [],
+  currentArticles: [],
   isLoading: false,
   error: null,
   startPageArticles: {} as StartPageArticles,
@@ -37,21 +37,38 @@ const newsSlice = createSlice({
     },
     [fetchNews.rejected.type]: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
+      state.isLoading = false;
     },
     [fetchNews.fulfilled.type]: (state, action: PayloadAction<BaseResponse>) => {
       const { news } = action.payload;
       const restArticlesStartIndex = 2;
 
-      state.articles = news;
       [state.hotNews.mainNews, state.hotNews.secondNews] = action.payload.news;
       state.hotNews.restNews = news.slice(restArticlesStartIndex);
+
+      state.isLoading = false;
+    },
+
+    [fetchNewsByCategory.pending.type]: state => {
+      state.isLoading = true;
+    },
+    [fetchNewsByCategory.rejected.type]: (state, action: PayloadAction<string>) => {
+      state.error = action.payload;
+      state.isLoading = false;
+    },
+    [fetchNewsByCategory.fulfilled.type]: (
+      state,
+      action: PayloadAction<BaseResponse>,
+    ) => {
+      state.currentArticles = action.payload.news;
+      state.isLoading = false;
     },
   },
 });
 
 export interface InitialState {
   pagination: Pagination;
-  articles: Article[];
+  currentArticles: Article[];
   isLoading: boolean;
   error: string | null;
   startPageArticles: StartPageArticles;
