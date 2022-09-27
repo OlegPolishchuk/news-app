@@ -1,17 +1,27 @@
 @import "src/common/style/variables";
 .nav {
   display: flex;
-}
 
-.nav_item {
-  font-size: 20px;
-  margin-right: 15px;
+  a {
+    font-size: 20px;
+    margin-right: 15px;
+    text-decoration: none;
+    color: $textColor;
 
-  &:hover {
+    transition: all .2s ease;
+
+    &:hover {
+      color: $themeColor;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+  }
+
+  .active {
     color: $themeColor;
   }
-
-  &:last-child {
-    margin-right: 0;
-  }
 }
+

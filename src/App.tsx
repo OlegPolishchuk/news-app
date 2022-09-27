@@ -4,7 +4,7 @@ import 'index.scss';
 
 import { Footer } from 'components/footer/Footer';
 import { Header } from 'components/header/Header';
-import { HotNews } from 'components/main/hotNews/HotNews';
+import { Pages } from 'components/pages/Pages';
 import { useAppDispatch } from 'hooks/useAppDispatch/useAppDispatch';
 import { fetchNews } from 'store/reducers/actionCreator';
 import { ReturnComponentType } from 'types';
@@ -21,7 +21,7 @@ const App = (): ReturnComponentType => {
       <div className="app">
         <Header />
         <main>
-          <HotNews />
+          <Pages />
         </main>
       </div>
       <Footer />

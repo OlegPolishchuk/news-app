@@ -3,7 +3,6 @@ import { Article } from 'models/article';
 const quantity = 4;
 
 export const newsSlicer = (news: Article[]): Article[][] => {
-  console.log(`news`, news);
   const result = [];
   let count = 0;
 
