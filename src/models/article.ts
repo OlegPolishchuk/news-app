@@ -1,12 +1,11 @@
 export interface Article {
-  author: string;
+  id: string;
   title: string;
   description: string;
   url: string;
-  source: string;
+  author: string;
   image: string;
-  category: string;
   language: string;
-  country: string;
-  published_at: string;
+  category: string[];
+  published: string;
 }
