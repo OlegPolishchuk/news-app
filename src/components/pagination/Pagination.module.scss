@@ -1,0 +1,44 @@
+@import "src/common/style/variables";
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  margin-bottom: 20px;
+}
+
+.pagination_page {
+  padding: 10px 15px;
+
+  border-radius: 3px;
+  border: 1px solid $textColor;
+
+  cursor: pointer;
+  transition: all .1s ease;
+
+  &:hover {
+    background: $themeColor;
+
+    .pagination_pageLink {
+      color: $whiteColor;
+    }
+  }
+}
+
+.pagination_page_active {
+  background: $themeColor;
+
+  .pagination_pageLink {
+    color: $whiteColor;
+  }
+}
+
+.pagination_pageLink {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+
+  color: $textColor;
+}

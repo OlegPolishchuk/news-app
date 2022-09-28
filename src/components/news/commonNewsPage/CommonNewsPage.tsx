@@ -10,7 +10,7 @@ import { MAX_PAGE_COUNT } from 'globalConstants';
 import { useAppDispatch } from 'hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector/useAppSelector';
 import { fetchNewsByCategory } from 'store/reducers/actionCreators';
-import { selectCurrentNews } from 'store/selectors';
+import { selectCurrentNews, selectRequestParams } from 'store/selectors';
 import { ReturnComponentType } from 'types';
 
 export const CommonNewsPage = (): ReturnComponentType => {
@@ -22,14 +22,16 @@ export const CommonNewsPage = (): ReturnComponentType => {
   const categoryName = currentPath.replace('/', '');
 
   const news = useAppSelector(selectCurrentNews);
-  const requestParams = useAppSelector(state => state.newsReducer.requestParams);
+  const requestParams = useAppSelector(selectRequestParams);
 
   const pageCount = MAX_PAGE_COUNT;
 
   const handlePageClick = (pageNumber: number): void => {
     const params = { ...requestParams, page_number: pageNumber };
 
-    dispatch(fetchNewsByCategory(params));
+    console.log(pageNumber);
+    console.log(params);
+    // dispatch(fetchNewsByCategory(params));
   };
 
   useEffect(() => {

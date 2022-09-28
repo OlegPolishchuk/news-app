@@ -2,6 +2,8 @@ import React from 'react';
 
 import ReactPaginate from 'react-paginate';
 
+import s from './Pagination.module.scss';
+
 import { ReturnComponentType } from 'types';
 
 interface Props {
@@ -30,10 +32,13 @@ export const Pagination = ({
     <ReactPaginate
       pageCount={pageCount}
       breakLabel="..."
-      nextLabel="next >"
-      previousLabel="< previous"
+      breakClassName={s.pagination_break}
       renderOnZeroPageCount={() => null}
       onClick={handlePageClick}
+      className={s.pagination}
+      activeClassName={s.pagination_page_active}
+      pageClassName={s.pagination_page}
+      pageLinkClassName={s.pagination_pageLink}
     />
   );
 };
