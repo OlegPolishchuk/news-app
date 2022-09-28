@@ -43,3 +43,9 @@
   padding: 10px 15px;
   color: $textColor;
 }
+
+.pagination_disabled {
+  cursor: not-allowed;
+
+  opacity: .6;
+}

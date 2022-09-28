@@ -22,7 +22,6 @@ const initialState: InitialState = {
     page_number: 1,
     category: 'general',
   } as RequestParams,
-  pagination: { currentPage: 0 },
 };
 
 const newsSlice = createSlice({
@@ -31,10 +30,6 @@ const newsSlice = createSlice({
   reducers: {
     setRequestParams: (state, action: PayloadAction<RequestParams>) => {
       state.requestParams = { ...state.requestParams, ...action.payload };
-    },
-
-    setCurrentPage: (state, action: PayloadAction<number>) => {
-      state.pagination.currentPage = action.payload;
     },
   },
 
@@ -81,12 +76,8 @@ export interface InitialState {
   startPageNews: StartPageNews;
   hotNews: HotNews;
   requestParams: RequestParams;
-  pagination: {
-    currentPage: number;
-  };
 }
 
 export const newsReducer = newsSlice.reducer;
 
 export const { setRequestParams } = newsSlice.actions;
-export const { setCurrentPage } = newsSlice.actions;

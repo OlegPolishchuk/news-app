@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useLocation } from 'react-router-dom';
 
@@ -10,7 +10,6 @@ import { MAX_PAGE_NUMBER } from 'globalConstants';
 import { useAppDispatch } from 'hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector/useAppSelector';
 import { fetchNewsByCategory } from 'store/reducers/actionCreators';
-import { setCurrentPage } from 'store/reducers/NewsSlice';
 import { selectCurrentNews, selectRequestParams } from 'store/selectors';
 import { ReturnComponentType } from 'types';
 
@@ -22,7 +21,8 @@ export const CommonNewsPage = (): ReturnComponentType => {
 
   const news = useAppSelector(selectCurrentNews);
   const requestParams = useAppSelector(selectRequestParams);
-  const currentPage = useAppSelector(state => state.newsReducer.pagination.currentPage);
+
+  const [currentPage, setCurrentPage] = useState(0);
 
   const pageCount = MAX_PAGE_NUMBER;
   const categoryName = currentPath.replace('/', '');
@@ -31,7 +31,7 @@ export const CommonNewsPage = (): ReturnComponentType => {
     const params = { ...requestParams, category: categoryName, page_number: pageNumber };
 
     dispatch(fetchNewsByCategory(params));
-    dispatch(setCurrentPage(pageNumber - 1));
+    setCurrentPage(pageNumber - 1);
     window.scrollTo({
       top: 0,
       behavior: 'smooth',

@@ -47,6 +47,7 @@ export const Pagination = ({
       nextLinkClassName={s.pagination_pageLink}
       previousClassName={s.pagination_page}
       previousLinkClassName={s.pagination_pageLink}
+      disabledClassName={s.pagination_disabled}
     />
   );
 };
