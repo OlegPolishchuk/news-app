@@ -1,1 +1,1 @@
-export {};
+export { Path } from './Path';

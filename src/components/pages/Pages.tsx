@@ -9,19 +9,20 @@ import { Politics } from 'components/main/politics/Politics';
 import { Science } from 'components/main/science/Science';
 import { Sports } from 'components/main/sports/Sports';
 import { Technology } from 'components/main/technology/Technology';
+import { Path } from 'enums';
 import { ReturnComponentType } from 'types';
 
 export const Pages = (): ReturnComponentType => {
   return (
     <Routes>
-      <Route path="sports" element={<Sports />} />
-      <Route path="business" element={<Business />} />
-      <Route path="politics" element={<Politics />} />
-      <Route path="health" element={<Health />} />
-      <Route path="science" element={<Science />} />
-      <Route path="technology" element={<Technology />} />
-      <Route path="/" element={<HotNews />} />
-      <Route path="404" element={<h2>Not found</h2>} />
+      <Route path={Path.Sports} element={<Sports />} />
+      <Route path={Path.Business} element={<Business />} />
+      <Route path={Path.Politics} element={<Politics />} />
+      <Route path={Path.Health} element={<Health />} />
+      <Route path={Path.Science} element={<Science />} />
+      <Route path={Path.Technology} element={<Technology />} />
+      <Route path={Path.MainPage} element={<HotNews />} />
+      <Route path={Path.NotFound} element={<h2>Not found</h2>} />
     </Routes>
   );
 };
