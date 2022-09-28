@@ -9,9 +9,11 @@
   margin-bottom: 20px;
 }
 
-.pagination_page {
-  padding: 10px 15px;
+.pagination_break {
+  padding: 10px;
+}
 
+.pagination_page {
   border-radius: 3px;
   border: 1px solid $textColor;
 
@@ -37,8 +39,7 @@
 
 .pagination_pageLink {
   display: inline-block;
-  height: 100%;
-  width: 100%;
 
+  padding: 10px 15px;
   color: $textColor;
 }

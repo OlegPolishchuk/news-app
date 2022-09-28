@@ -27,7 +27,11 @@ const initialState: InitialState = {
 const newsSlice = createSlice({
   name: 'news',
   initialState,
-  reducers: {},
+  reducers: {
+    setRequestParams: (state, action: PayloadAction<RequestParams>) => {
+      state.requestParams = { ...state.requestParams, ...action.payload };
+    },
+  },
 
   extraReducers: {
     [fetchNews.pending.type]: state => {
@@ -75,3 +79,5 @@ export interface InitialState {
 }
 
 export const newsReducer = newsSlice.reducer;
+
+export const { setRequestParams } = newsSlice.actions;

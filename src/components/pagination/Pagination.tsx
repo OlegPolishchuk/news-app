@@ -25,20 +25,25 @@ export const Pagination = ({
     isBreak: boolean;
     isActive: boolean;
   }): void => {
-    onClickCallback(e.selected);
+    // return buttons index (1 => 0, 2 => 1, 3 => 2 ...)
+    onClickCallback(e.selected + 1);
   };
 
   return (
     <ReactPaginate
       pageCount={pageCount}
       breakLabel="..."
-      breakClassName={s.pagination_break}
       renderOnZeroPageCount={() => null}
-      onClick={handlePageClick}
+      onPageChange={handlePageClick}
       className={s.pagination}
+      breakClassName={s.pagination_break}
       activeClassName={s.pagination_page_active}
       pageClassName={s.pagination_page}
       pageLinkClassName={s.pagination_pageLink}
+      nextClassName={s.pagination_page}
+      nextLinkClassName={s.pagination_pageLink}
+      previousClassName={s.pagination_page}
+      previousLinkClassName={s.pagination_pageLink}
     />
   );
 };
