@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import 'normalize.css';
 import 'index.scss';
 
@@ -6,20 +6,12 @@ import { Footer } from 'components/footer/Footer';
 import { Header } from 'components/header/Header';
 import { Pages } from 'components/pages/Pages';
 import { Preloader } from 'components/preloader/Preloader';
-import { useAppDispatch } from 'hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector/useAppSelector';
-import { fetchNews } from 'store/reducers/actionCreator';
 import { selectIsLoading } from 'store/selectors';
 import { ReturnComponentType } from 'types';
 
 const App = (): ReturnComponentType => {
-  const dispatch = useAppDispatch();
-
   const isLoading = useAppSelector(selectIsLoading);
-
-  useLayoutEffect(() => {
-    dispatch(fetchNews());
-  }, []);
 
   return (
     <>

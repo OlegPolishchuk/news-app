@@ -2,11 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { BaseResponse } from 'api/types';
 import { DEFAULT_PAGINATION_OFFSET, LIMIT_PAGE } from 'globalConstants';
-import { Article } from 'models/article';
-import { HotNews } from 'models/hotNews';
-import { Pagination } from 'models/pagination';
-import { StartPageArticles } from 'models/startPageArticles';
-import { fetchNews, fetchNewsByCategory } from 'store/reducers/actionCreator';
+import { fetchNews, fetchNewsByCategory } from 'store/reducers/actionCreators';
+import { HotNews } from 'types/models/hotNews';
+import { News } from 'types/models/news';
+import { Pagination } from 'types/models/pagination';
+import { StartPageNews } from 'types/models/startPageNews';
 
 const initialState: InitialState = {
   pagination: {
@@ -15,14 +15,14 @@ const initialState: InitialState = {
     count: 0,
     total: 0,
   },
-  currentArticles: [],
+  currentNews: [],
   isLoading: false,
   error: null,
-  startPageArticles: {} as StartPageArticles,
+  startPageNews: {} as StartPageNews,
   hotNews: {
-    mainNews: {} as Article,
+    mainNews: {} as News,
     restNews: [],
-    secondNews: {} as Article,
+    secondNews: {} as News,
   },
 };
 
@@ -60,7 +60,7 @@ const newsSlice = createSlice({
       state,
       action: PayloadAction<BaseResponse>,
     ) => {
-      state.currentArticles = action.payload.news;
+      state.currentNews = action.payload.news;
       state.isLoading = false;
     },
   },
@@ -68,10 +68,10 @@ const newsSlice = createSlice({
 
 export interface InitialState {
   pagination: Pagination;
-  currentArticles: Article[];
+  currentNews: News[];
   isLoading: boolean;
   error: string | null;
-  startPageArticles: StartPageArticles;
+  startPageNews: StartPageNews;
   hotNews: HotNews;
 }
 

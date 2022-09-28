@@ -2,21 +2,20 @@ import React from 'react';
 
 import newsImg from '../../../assets/images/img_news.jpg';
 
-import s from './News.module.scss';
-
-import { Article } from 'models/article';
+import s from 'components/main/news/SingleNews.module.scss';
 import { ReturnComponentType } from 'types';
-import { getTextFromHTMLTag } from 'utils/getTextFromHTMLTag';
+import { News } from 'types/models/news';
+import { deleteHTMLTagFromText } from 'utils/deleteHTMLTagFromText';
 
 interface Props {
-  article: Article;
+  article: News;
   type: 'large' | 'middle' | 'small';
   revers?: boolean;
 }
 
-export const News = ({ article, type, revers }: Props): ReturnComponentType => {
+export const SingleNews = ({ article, type, revers }: Props): ReturnComponentType => {
   const imgSrc = article.image === 'None' ? newsImg : article.image;
-  const author = getTextFromHTMLTag(article.author);
+  const author = deleteHTMLTagFromText(article.author);
 
   let classNames = '';
 
@@ -41,7 +40,9 @@ export const News = ({ article, type, revers }: Props): ReturnComponentType => {
 
   return (
     <article className={`${s.news} ${classNames}`}>
-      <img className={s.news_img} src={imgSrc} alt={article.title} />
+      <div className={s.news_img_box}>
+        <img className={s.news_img} src={imgSrc} alt={article.title} />
+      </div>
       <div className={s.news_description}>
         <div className={s.news_author}>
           <h3>{author}</h3>

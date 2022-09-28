@@ -3,5 +3,7 @@
 
 .header > div {
   @include  headerBlock();
+
+  border-bottom: 1px solid $textColor;
 }
 

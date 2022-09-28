@@ -1,5 +1,5 @@
-import { Article } from 'models/article';
+import { News } from 'types/models/news';
 
 export interface BaseResponse {
-  news: Article[];
+  news: News[];
 }

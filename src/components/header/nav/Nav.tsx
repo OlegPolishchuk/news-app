@@ -43,7 +43,7 @@ export const Nav = (): ReturnComponentType => {
           <li className={s.nav_item}>Health</li>
         </NavLink>
         <NavLink
-          to={Path.Politics}
+          to={Path.Science}
           className={({ isActive }) => (isActive ? s.active : '')}
         >
           <li className={s.nav_item}>Science</li>

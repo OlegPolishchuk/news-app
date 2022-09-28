@@ -1,8 +1,8 @@
-import { Article } from 'models/article';
+import { News } from 'types/models/news';
 
 const quantity = 4;
 
-export const newsSlicer = (news: Article[]): Article[][] => {
+export const newsSlicer = (news: News[]): News[][] => {
   const result = [];
   let count = 0;
 
