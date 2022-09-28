@@ -6,10 +6,11 @@ import s from 'components/news/commonNewsPage/CommonNewsPage.module.scss';
 import { SingleNews } from 'components/news/singleNews/SingleNews';
 import { Pagination } from 'components/pagination/Pagination';
 import { Title } from 'components/title/Title';
-import { DEFAULT_PAGE_SIZE, MAX_RESULT_LENGTH } from 'globalConstants';
+import { MAX_PAGE_NUMBER } from 'globalConstants';
 import { useAppDispatch } from 'hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector/useAppSelector';
 import { fetchNewsByCategory } from 'store/reducers/actionCreators';
+import { setCurrentPage } from 'store/reducers/NewsSlice';
 import { selectCurrentNews, selectRequestParams } from 'store/selectors';
 import { ReturnComponentType } from 'types';
 
@@ -21,14 +22,16 @@ export const CommonNewsPage = (): ReturnComponentType => {
 
   const news = useAppSelector(selectCurrentNews);
   const requestParams = useAppSelector(selectRequestParams);
+  const currentPage = useAppSelector(state => state.newsReducer.pagination.currentPage);
 
-  const pageCount = Math.ceil(MAX_RESULT_LENGTH / DEFAULT_PAGE_SIZE);
+  const pageCount = MAX_PAGE_NUMBER;
   const categoryName = currentPath.replace('/', '');
 
   const handlePageClick = (pageNumber: number): void => {
     const params = { ...requestParams, category: categoryName, page_number: pageNumber };
 
     dispatch(fetchNewsByCategory(params));
+    dispatch(setCurrentPage(pageNumber - 1));
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -44,13 +47,21 @@ export const CommonNewsPage = (): ReturnComponentType => {
   return (
     <section>
       <Title title={categoryName} />
-      <Pagination pageCount={pageCount} onClickCallback={handlePageClick} />
+      <Pagination
+        currentPage={currentPage}
+        pageCount={pageCount}
+        onClickCallback={handlePageClick}
+      />
       <div className={s.newsContainer}>
         {news.map(news => (
           <SingleNews key={news.id} article={news} type="small" />
         ))}
       </div>
-      <Pagination pageCount={pageCount} onClickCallback={handlePageClick} />
+      <Pagination
+        currentPage={currentPage}
+        pageCount={pageCount}
+        onClickCallback={handlePageClick}
+      />
     </section>
   );
 };

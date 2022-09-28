@@ -9,11 +9,13 @@ import { ReturnComponentType } from 'types';
 interface Props {
   pageCount: number;
   onClickCallback: (pageNumber: number) => void;
+  currentPage: number;
 }
 
 export const Pagination = ({
   pageCount,
   onClickCallback,
+  currentPage,
 }: Props): ReturnComponentType => {
   const handlePageClick = (e: {
     index: number | null;
@@ -32,6 +34,7 @@ export const Pagination = ({
   return (
     <ReactPaginate
       pageCount={pageCount}
+      forcePage={currentPage}
       breakLabel="..."
       renderOnZeroPageCount={() => null}
       onPageChange={handlePageClick}

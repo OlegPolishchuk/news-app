@@ -1,5 +1,5 @@
 export const LIMIT_PAGE = 20;
-export const MAX_RESULT_LENGTH = 200;
+export const MAX_PAGE_NUMBER = 180;
 export const START_PAGE_NUMBER = 1;
 export const DEFAULT_PAGE_SIZE = 30;
 
