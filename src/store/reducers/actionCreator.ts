@@ -3,7 +3,7 @@ import { AxiosError } from 'axios';
 
 import { NewsAPI } from 'api';
 
-export const fetchNews = createAsyncThunk('news/fetchNews', async (_, thunkApi) => {
+export const fetchNews = createAsyncThunk('hotNews/fetchNews', async (_, thunkApi) => {
   try {
     return await NewsAPI.fetchStartingNews();
   } catch (e) {
@@ -14,7 +14,7 @@ export const fetchNews = createAsyncThunk('news/fetchNews', async (_, thunkApi) 
 });
 
 export const fetchNewsByCategory = createAsyncThunk(
-  'news/fetchNewsByCategory',
+  'hotNews/fetchNewsByCategory',
   async (category: { category: string }, thunkApi) => {
     try {
       return await NewsAPI.fetchNewsByCategory(category.category);

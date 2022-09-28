@@ -23,7 +23,6 @@ export const Header = (): ReturnComponentType => {
         <Weather />
         <ExchangeCourse />
       </div>
-      <hr />
     </header>
   );
 };

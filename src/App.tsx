@@ -9,12 +9,13 @@ import { Preloader } from 'components/preloader/Preloader';
 import { useAppDispatch } from 'hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector/useAppSelector';
 import { fetchNews } from 'store/reducers/actionCreator';
+import { selectIsLoading } from 'store/selectors';
 import { ReturnComponentType } from 'types';
 
 const App = (): ReturnComponentType => {
   const dispatch = useAppDispatch();
 
-  const { isLoading } = useAppSelector(state => state.newsReducer);
+  const isLoading = useAppSelector(selectIsLoading);
 
   useLayoutEffect(() => {
     dispatch(fetchNews());
