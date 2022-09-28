@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 
-import { SingleNews } from 'components/main/news/SingleNews';
-import { NewsBox } from 'components/main/newsBox/NewsBox';
+import { NewsBox } from 'components/news/newsBox/NewsBox';
+import { SingleNews } from 'components/news/singleNews/SingleNews';
 import { Title } from 'components/title/Title';
 import { useAppDispatch } from 'hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector/useAppSelector';

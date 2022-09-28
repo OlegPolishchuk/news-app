@@ -1,16 +1,17 @@
 import { instance } from 'api/config';
-import { BaseResponse } from 'api/types';
+import { BaseResponse } from 'types';
+import { RequestParams } from 'types/models/RequestParams';
 
 export class NewsAPI {
   static fetchStartingNews(): Promise<BaseResponse> {
     return instance.get('latest-news', {}).then(res => res.data);
   }
 
-  static fetchNewsByCategory(category: string): Promise<BaseResponse> {
+  static fetchNewsByCategory(params: RequestParams): Promise<BaseResponse> {
     return instance
       .get(`search/`, {
         params: {
-          category,
+          ...params,
         },
       })
       .then(res => res.data);

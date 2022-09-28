@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
 
 import { NewsAPI } from 'api';
+import { RequestParams } from 'types';
 
 export const fetchNews = createAsyncThunk('hotNews/fetchNews', async (_, thunkApi) => {
   try {
@@ -15,9 +16,14 @@ export const fetchNews = createAsyncThunk('hotNews/fetchNews', async (_, thunkAp
 
 export const fetchNewsByCategory = createAsyncThunk(
   'hotNews/fetchNewsByCategory',
-  async (category: { category: string }, thunkApi) => {
+  async (params: RequestParams, thunkApi) => {
     try {
-      return await NewsAPI.fetchNewsByCategory(category.category);
+      const data = await NewsAPI.fetchNewsByCategory(params);
+
+      return {
+        data,
+        requestParams: params,
+      };
     } catch (e) {
       const error = e as Error | AxiosError;
 

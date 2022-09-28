@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 
-import { CommonNewsPage } from 'components/main/CommonNewsPage/CommonNewsPage';
-import { HotNews } from 'components/main/hotNews/HotNews';
+import { CommonNewsPage } from 'components/news/commonNewsPage/CommonNewsPage';
+import { HotNews } from 'components/news/hotNews/HotNews';
 import { Path } from 'enums';
 import { ReturnComponentType } from 'types';
 

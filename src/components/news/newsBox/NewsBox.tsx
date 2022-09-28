@@ -1,8 +1,7 @@
 import React from 'react';
 
-import s from './NewsBox.module.scss';
-
-import { SingleNews } from 'components/main/news/SingleNews';
+import s from 'components/news/newsBox/NewsBox.module.scss';
+import { SingleNews } from 'components/news/singleNews/SingleNews';
 import { ReturnComponentType } from 'types';
 import { News } from 'types/models/news';
 

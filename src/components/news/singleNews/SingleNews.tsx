@@ -1,8 +1,7 @@
 import React from 'react';
 
-import newsImg from '../../../assets/images/img_news.jpg';
-
-import s from 'components/main/news/SingleNews.module.scss';
+import newsImg from 'assets/images/img_news.jpg';
+import s from 'components/news/singleNews/SingleNews.module.scss';
 import { ReturnComponentType } from 'types';
 import { News } from 'types/models/news';
 import { deleteHTMLTagFromText } from 'utils/deleteHTMLTagFromText';

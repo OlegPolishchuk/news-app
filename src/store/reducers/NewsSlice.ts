@@ -1,20 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { BaseResponse } from 'api/types';
-import { DEFAULT_PAGINATION_OFFSET, LIMIT_PAGE } from 'globalConstants';
 import { fetchNews, fetchNewsByCategory } from 'store/reducers/actionCreators';
+import { ResponseWithParams } from 'types';
 import { HotNews } from 'types/models/hotNews';
 import { News } from 'types/models/news';
-import { Pagination } from 'types/models/pagination';
+import { RequestParams } from 'types/models/RequestParams';
 import { StartPageNews } from 'types/models/startPageNews';
+import { BaseResponse } from 'types/responses/BaseResponce';
 
 const initialState: InitialState = {
-  pagination: {
-    limit: LIMIT_PAGE,
-    offset: DEFAULT_PAGINATION_OFFSET,
-    count: 0,
-    total: 0,
-  },
   currentNews: [],
   isLoading: false,
   error: null,
@@ -24,6 +18,10 @@ const initialState: InitialState = {
     restNews: [],
     secondNews: {} as News,
   },
+  requestParams: {
+    page_number: 1,
+    category: 'general',
+  } as RequestParams,
 };
 
 const newsSlice = createSlice({
@@ -58,21 +56,22 @@ const newsSlice = createSlice({
     },
     [fetchNewsByCategory.fulfilled.type]: (
       state,
-      action: PayloadAction<BaseResponse>,
+      action: PayloadAction<ResponseWithParams>,
     ) => {
-      state.currentNews = action.payload.news;
+      state.currentNews = action.payload.data.news;
       state.isLoading = false;
+      state.requestParams = { ...state.requestParams, ...action.payload.params };
     },
   },
 });
 
 export interface InitialState {
-  pagination: Pagination;
   currentNews: News[];
   isLoading: boolean;
   error: string | null;
   startPageNews: StartPageNews;
   hotNews: HotNews;
+  requestParams: RequestParams;
 }
 
 export const newsReducer = newsSlice.reducer;
