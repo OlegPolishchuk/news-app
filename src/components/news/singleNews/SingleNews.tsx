@@ -58,7 +58,7 @@ export const SingleNews = ({ article, type, revers }: Props): ReturnComponentTyp
           <h2 className={s.news_title}>{article.title}</h2>
         </NavLink>
         <p className={s.news_text}>{article.description}</p>
-        <a href={article.url} target="_blank" rel="noreferrer">
+        <a className={s.news_linkTo} href={article.url} target="_blank" rel="noreferrer">
           read more
         </a>
       </div>

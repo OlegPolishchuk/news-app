@@ -47,6 +47,7 @@ const newsSlice = createSlice({
 
       [state.hotNews.mainNews, state.hotNews.secondNews] = action.payload.news;
       state.hotNews.restNews = news.slice(restArticlesStartIndex);
+      state.currentNews = action.payload.news;
 
       state.isLoading = false;
     },

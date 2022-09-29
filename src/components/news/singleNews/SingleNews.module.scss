@@ -8,9 +8,21 @@
   a {
     color: $textColor;
     text-decoration: none;
+
+    &.news_linkTo {
+      color: $themeColor;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
+
+
+
+//hover
 .news_img_box {
   overflow: hidden;
 
@@ -21,12 +33,6 @@
   };
 }
 
-.news_title {
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 .news_img {
   transition: .2s ease;
   cursor: pointer;
@@ -35,6 +41,18 @@
     transform: scale(1.05);
   }
 }
+
+.news_title {
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:hover .news_img {
+    transform: scale(1.05);
+  }
+}
+
+////////
 
 .newsLarge {
 
