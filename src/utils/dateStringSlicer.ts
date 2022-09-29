@@ -2,5 +2,7 @@
 const last_index = -5;
 
 export const dateStringSlicer = (date: string): string => {
+  if (!date) return '';
+
   return date.slice(0, last_index);
 };

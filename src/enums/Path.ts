@@ -7,4 +7,5 @@ export enum Path {
   Science = '/science',
   Technology = '/technology',
   NotFound = '/notFound',
+  News = `/news`,
 }

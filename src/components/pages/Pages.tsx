@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import { CommonNewsPage } from 'components/news/commonNewsPage/CommonNewsPage';
+import { CurrentNews } from 'components/news/currentNews/CurrentNews';
 import { HotNews } from 'components/news/hotNews/HotNews';
 import { Path } from 'enums';
 import { ReturnComponentType } from 'types';
@@ -18,6 +19,8 @@ export const Pages = (): ReturnComponentType => {
       <Route path={Path.Technology} element={<CommonNewsPage />} />
       <Route path={Path.MainPage} element={<HotNews />} />
       <Route path={Path.NotFound} element={<h2>Not found</h2>} />
+      <Route path={`${Path.News}/:id`} element={<CurrentNews />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };

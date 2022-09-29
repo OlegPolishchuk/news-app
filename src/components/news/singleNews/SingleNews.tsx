@@ -1,7 +1,10 @@
 import React from 'react';
 
+import { NavLink } from 'react-router-dom';
+
 import newsImg from 'assets/images/img_news.jpg';
 import s from 'components/news/singleNews/SingleNews.module.scss';
+import { Path } from 'enums';
 import { ReturnComponentType } from 'types';
 import { News } from 'types/models/news';
 import { dateStringSlicer } from 'utils/dateStringSlicer';
@@ -42,14 +45,18 @@ export const SingleNews = ({ article, type, revers }: Props): ReturnComponentTyp
   return (
     <article className={`${s.news} ${classNames}`}>
       <div className={s.news_img_box}>
-        <img className={s.news_img} src={imgSrc} alt={article.title} />
+        <NavLink to={`${Path.News}/${article.id}`}>
+          <img className={s.news_img} src={imgSrc} alt={article.title} />
+        </NavLink>
       </div>
       <div className={s.news_description}>
         <div className={s.news_author}>
           <h3>{author}</h3>
           <span>{articleDate}</span>
         </div>
-        <h2 className={s.news_title}>{article.title}</h2>
+        <NavLink to={`${Path.News}/${article.id}`}>
+          <h2 className={s.news_title}>{article.title}</h2>
+        </NavLink>
         <p className={s.news_text}>{article.description}</p>
         <a href={article.url} target="_blank" rel="noreferrer">
           read more
