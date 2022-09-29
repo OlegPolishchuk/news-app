@@ -4,6 +4,7 @@ import newsImg from 'assets/images/img_news.jpg';
 import s from 'components/news/singleNews/SingleNews.module.scss';
 import { ReturnComponentType } from 'types';
 import { News } from 'types/models/news';
+import { dateStringSlicer } from 'utils/dateStringSlicer';
 import { deleteHTMLTagFromText } from 'utils/deleteHTMLTagFromText';
 
 interface Props {
@@ -15,6 +16,7 @@ interface Props {
 export const SingleNews = ({ article, type, revers }: Props): ReturnComponentType => {
   const imgSrc = article.image === 'None' ? newsImg : article.image;
   const author = deleteHTMLTagFromText(article.author);
+  const articleDate = dateStringSlicer(article.published);
 
   let classNames = '';
 
@@ -45,7 +47,7 @@ export const SingleNews = ({ article, type, revers }: Props): ReturnComponentTyp
       <div className={s.news_description}>
         <div className={s.news_author}>
           <h3>{author}</h3>
-          <span>{article.published}</span>
+          <span>{articleDate}</span>
         </div>
         <h2 className={s.news_title}>{article.title}</h2>
         <p className={s.news_text}>{article.description}</p>
