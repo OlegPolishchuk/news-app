@@ -3,6 +3,11 @@
 .logo {
   font-size: 26px;
   margin: 0;
+
+  a {
+    text-decoration: none;
+    color: $textColor;
+  }
 }
 
 .logo_item {
