@@ -1,0 +1,40 @@
+@import "src/common/style/variables";
+
+.article {
+  min-height: calc(100vh - 270px);
+}
+
+.article_content {
+  display: flex;
+  justify-content: space-between;
+
+  img {
+   width: 45%;
+  }
+}
+
+.article_description {
+  width: 50%;
+}
+
+.article_author {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+
+  color: $textGrayColor;
+}
+
+.article_text {
+  margin: 0 0 25px 0;
+  font-size: 28px;
+}
+
+.article_linkTo {
+  text-decoration: none;
+  color: $themeColor;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

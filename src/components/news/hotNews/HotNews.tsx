@@ -6,7 +6,12 @@ import { Title } from 'components/title/Title';
 import { useAppDispatch } from 'hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector/useAppSelector';
 import { fetchNews } from 'store/reducers/actionCreators';
-import { selectMainNews, selectRestNews, selectSecondNews } from 'store/selectors';
+import {
+  selectIsInitialized,
+  selectMainNews,
+  selectRestNews,
+  selectSecondNews,
+} from 'store/selectors';
 import { ReturnComponentType } from 'types';
 import { newsSlicer } from 'utils/newsSlicer';
 
@@ -16,6 +21,7 @@ export const HotNews = (): ReturnComponentType => {
   const mainNews = useAppSelector(selectMainNews);
   const secondNews = useAppSelector(selectSecondNews);
   const restNews = useAppSelector(selectRestNews);
+  const isInitialized = useAppSelector(selectIsInitialized);
 
   const articlesForNewsBox = newsSlicer(restNews);
 
@@ -26,11 +32,15 @@ export const HotNews = (): ReturnComponentType => {
   return (
     <section>
       <Title title="Hot news" />
-      <SingleNews article={mainNews} type="large" />
-      <SingleNews article={secondNews} revers type="large" />
-      {articlesForNewsBox.map((article, i) => (
-        <NewsBox key={i.toString()} news={article} />
-      ))}
+      {isInitialized && (
+        <>
+          <SingleNews article={mainNews} type="large" />
+          <SingleNews article={secondNews} revers type="large" />
+          {articlesForNewsBox.map((article, i) => (
+            <NewsBox key={i.toString()} news={article} />
+          ))}
+        </>
+      )}
     </section>
   );
 };

@@ -11,7 +11,7 @@ type PropsType = {
 export const Title = ({ title }: PropsType): ReturnComponentType => {
   const titleWords = title.split(' ');
   const firstWord = titleWords[0];
-  const restTitle = titleWords.slice(1);
+  const restTitle = titleWords.slice(1).join(' ');
 
   return (
     <h2 className={s.title}>

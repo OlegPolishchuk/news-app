@@ -22,6 +22,7 @@ const initialState: InitialState = {
     page_number: 1,
     category: 'general',
   } as RequestParams,
+  isInitialized: false,
 };
 
 const newsSlice = createSlice({
@@ -50,6 +51,7 @@ const newsSlice = createSlice({
       state.currentNews = action.payload.news;
 
       state.isLoading = false;
+      state.isInitialized = true;
     },
 
     [fetchNewsByCategory.pending.type]: state => {
@@ -77,6 +79,7 @@ export interface InitialState {
   startPageNews: StartPageNews;
   hotNews: HotNews;
   requestParams: RequestParams;
+  isInitialized: boolean;
 }
 
 export const newsReducer = newsSlice.reducer;

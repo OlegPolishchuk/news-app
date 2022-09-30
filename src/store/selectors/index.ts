@@ -1,4 +1,5 @@
 export { selectIsLoading } from './app/selectIsLoading';
+export { selectIsInitialized } from './app/selectIsInitialized';
 
 export { selectMainNews } from 'store/selectors/hotNews/selectMainNews';
 export { selectSecondNews } from 'store/selectors/hotNews/selectSecondNews';
