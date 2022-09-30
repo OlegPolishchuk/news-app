@@ -8,4 +8,5 @@ export enum Path {
   Technology = '/technology',
   NotFound = '/notFound',
   News = `/news`,
+  APIWarning = '/warning',
 }

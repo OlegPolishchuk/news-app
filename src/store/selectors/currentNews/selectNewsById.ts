@@ -7,10 +7,5 @@ export const selectNewsById =
     const allNews = state.newsReducer.currentNews;
     const result = allNews.find(news => news.id === newsId);
 
-    console.log(`allNews => ${allNews}`);
-
-    console.log(`id => ${newsId}`);
-    console.log(`result => ${result}`);
-
     return result || ({} as News);
   };

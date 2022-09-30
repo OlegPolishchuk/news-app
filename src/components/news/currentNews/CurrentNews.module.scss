@@ -1,9 +1,5 @@
 @import "src/common/style/variables";
 
-.article {
-  min-height: calc(100vh - 270px);
-}
-
 .article_content {
   display: flex;
   justify-content: space-between;
