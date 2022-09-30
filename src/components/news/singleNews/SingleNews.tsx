@@ -17,9 +17,13 @@ interface Props {
 }
 
 export const SingleNews = ({ article, type, revers }: Props): ReturnComponentType => {
-  const imgSrc = article.image === 'None' ? newsImg : article.image;
+  let imgSrc = article.image === 'None' ? newsImg : article.image;
+  const imgSource =
+    'https://static.arxiv.org/static/browse/0.3.4/images/icons/favicon.ico';
   const author = deleteHTMLTagFromText(article.author);
   const articleDate = dateStringSlicer(article.published);
+
+  imgSrc = imgSrc.includes(imgSource) ? newsImg : imgSrc;
 
   let classNames = '';
 
@@ -45,7 +49,7 @@ export const SingleNews = ({ article, type, revers }: Props): ReturnComponentTyp
   return (
     <article className={`${s.news} ${classNames}`}>
       <div className={s.news_img_box}>
-        <NavLink to={`${Path.News}/${article.id}`}>
+        <NavLink className={s.news_img_link} to={`${Path.News}/${article.id}`}>
           <img className={s.news_img} src={imgSrc} alt={article.title} />
         </NavLink>
       </div>

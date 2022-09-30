@@ -25,6 +25,7 @@
 //hover
 .news_img_box {
   overflow: hidden;
+  max-height: 350px;
 
   &:hover + .news_description {
     .news_title {
@@ -53,6 +54,12 @@
 }
 
 ////////
+
+.news_img_link {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
 
 .newsLarge {
 
@@ -95,6 +102,15 @@
   .news_description {
     margin-top: 20px;
     font-size: 16px;
+  }
+
+  .news_img_box {
+    max-height: 185px;
+    object-fit: fill;
+  }
+
+  .news_img {
+    object-fit: fill;
   }
 }
 
