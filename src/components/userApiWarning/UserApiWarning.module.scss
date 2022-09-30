@@ -1,0 +1,39 @@
+@import "src/common/style/variables";
+
+.warningSection {
+  margin-top: 40px;
+}
+
+.warningSection_messageWrapper {
+  padding: 30px;
+  margin: 0 auto;
+
+  max-width: 600px;
+
+  border: 1px solid $textColor;
+
+  text-align: center;
+  font-size: 18px;
+}
+
+.warningSection_items {
+  color: $themeColor;
+}
+
+.button_redirect {
+  background: $themeColor;
+  color: $whiteColor;
+
+  padding: 10px;
+
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+
+  opacity: .8;
+  transition: ease all .2s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
