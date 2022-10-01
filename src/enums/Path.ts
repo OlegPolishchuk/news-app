@@ -9,4 +9,5 @@ export enum Path {
   NotFound = '/notFound',
   News = `/news`,
   APIWarning = '/warning',
+  SearchNews = '/searchNews',
 }

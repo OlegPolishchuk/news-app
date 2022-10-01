@@ -21,6 +21,7 @@ const initialState: InitialState = {
   requestParams: {
     page_number: 1,
     category: 'general',
+    keywords: '',
   } as RequestParams,
   isInitialized: false,
 };
@@ -31,6 +32,14 @@ const newsSlice = createSlice({
   reducers: {
     setRequestParams: (state, action: PayloadAction<RequestParams>) => {
       state.requestParams = { ...state.requestParams, ...action.payload };
+    },
+
+    setRequestParamsKeywords: (state, action: PayloadAction<string>) => {
+      state.requestParams.keywords = action.payload;
+    },
+
+    setRequestParamsPageNumber: (state, action: PayloadAction<number>) => {
+      state.requestParams.page_number = action.payload;
     },
   },
 
@@ -84,4 +93,5 @@ export interface InitialState {
 
 export const newsReducer = newsSlice.reducer;
 
-export const { setRequestParams } = newsSlice.actions;
+export const { setRequestParamsKeywords } = newsSlice.actions;
+export const { setRequestParamsPageNumber } = newsSlice.actions;

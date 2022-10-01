@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 import s from 'components/news/commonNewsPage/CommonNewsPage.module.scss';
 import { SingleNews } from 'components/news/singleNews/SingleNews';
@@ -10,6 +10,7 @@ import { MAX_PAGE_NUMBER } from 'globalConstants';
 import { useAppDispatch } from 'hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector/useAppSelector';
 import { fetchNewsByCategory } from 'store/reducers/actionCreators';
+import { setRequestParamsPageNumber } from 'store/reducers/NewsSlice';
 import { selectCurrentNews, selectRequestParams } from 'store/selectors';
 import { ReturnComponentType } from 'types';
 
@@ -19,8 +20,12 @@ export const CommonNewsPage = (): ReturnComponentType => {
   const location = useLocation();
   const currentPath = location.pathname;
 
+  const setSearchParams = useSearchParams()[1];
+
   const news = useAppSelector(selectCurrentNews);
-  const requestParams = useAppSelector(selectRequestParams);
+  const { page_number } = useAppSelector(selectRequestParams);
+  const { category } = useAppSelector(selectRequestParams);
+  const { keywords } = useAppSelector(selectRequestParams);
 
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -28,9 +33,8 @@ export const CommonNewsPage = (): ReturnComponentType => {
   const categoryName = currentPath.replace('/', '');
 
   const handlePageClick = (pageNumber: number): void => {
-    const params = { ...requestParams, category: categoryName, page_number: pageNumber };
+    dispatch(setRequestParamsPageNumber(pageNumber));
 
-    dispatch(fetchNewsByCategory(params));
     setCurrentPage(pageNumber - 1);
     window.scrollTo({
       top: 0,
@@ -39,10 +43,15 @@ export const CommonNewsPage = (): ReturnComponentType => {
   };
 
   useEffect(() => {
-    const params = { ...requestParams, category: categoryName };
+    const params = {
+      page_number,
+      keywords,
+      category: categoryName,
+    };
 
+    setSearchParams({ page_number: `${page_number}` });
     dispatch(fetchNewsByCategory(params));
-  }, [currentPath]);
+  }, [currentPath, page_number, category]);
 
   return (
     <section>

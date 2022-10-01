@@ -7,3 +7,5 @@ export { selectRestNews } from 'store/selectors/hotNews/selectRestNews';
 
 export { selectCurrentNews } from 'store/selectors/currentNews/selectCurrentNews';
 export { selectRequestParams } from 'store/selectors/currentNews/selectRequestParams';
+
+export { selectSearchParamsKeywords } from './searchParams/selectSearchParamsKeywords';
