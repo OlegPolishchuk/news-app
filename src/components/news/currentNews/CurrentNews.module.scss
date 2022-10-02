@@ -1,5 +1,9 @@
 @import "src/common/style/variables";
 
+.article {
+  margin-bottom: 40px;
+}
+
 .article_content {
   display: flex;
   justify-content: space-between;
