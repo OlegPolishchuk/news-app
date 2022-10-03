@@ -1,5 +1,6 @@
 import React from 'react';
 
+import parse from 'html-react-parser';
 import { NavLink } from 'react-router-dom';
 
 import newsImg from 'assets/images/img_news.jpg';
@@ -14,14 +15,22 @@ interface Props {
   article: News;
   type: 'large' | 'middle' | 'small';
   revers?: boolean;
+  isSearching?: boolean;
 }
 
-export const SingleNews = ({ article, type, revers }: Props): ReturnComponentType => {
+export const SingleNews = ({
+  article,
+  type,
+  revers,
+  isSearching,
+}: Props): ReturnComponentType => {
   let imgSrc = article.image === 'None' ? newsImg : article.image;
   const imgSource =
     'https://static.arxiv.org/static/browse/0.3.4/images/icons/favicon.ico';
   const author = deleteHTMLTagFromText(article.author);
   const articleDate = dateStringSlicer(article.published);
+  const title = isSearching ? parse(article.title) : article.title;
+  const description = isSearching ? parse(article.description) : article.description;
 
   imgSrc = imgSrc.includes(imgSource) ? newsImg : imgSrc;
 
@@ -59,9 +68,9 @@ export const SingleNews = ({ article, type, revers }: Props): ReturnComponentTyp
           <span>{articleDate}</span>
         </div>
         <NavLink to={`${Path.News}/${article.id}`}>
-          <h2 className={s.news_title}>{article.title}</h2>
+          <h2 className={s.news_title}>{title}</h2>
         </NavLink>
-        <p className={s.news_text}>{article.description}</p>
+        <p className={s.news_text}>{description}</p>
         <a className={s.news_linkTo} href={article.url} target="_blank" rel="noreferrer">
           read more
         </a>

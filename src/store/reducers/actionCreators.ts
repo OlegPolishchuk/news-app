@@ -14,7 +14,7 @@ export const fetchNews = createAsyncThunk('hotNews/fetchNews', async (_, thunkAp
   }
 });
 
-export const fetchNewsByCategory = createAsyncThunk(
+export const fetchNewsWithParams = createAsyncThunk(
   'hotNews/fetchNewsByCategory',
   async (params: RequestParams, thunkApi) => {
     try {

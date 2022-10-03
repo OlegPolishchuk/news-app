@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { fetchNews, fetchNewsByCategory } from 'store/reducers/actionCreators';
+import { fetchNews, fetchNewsWithParams } from 'store/reducers/actionCreators';
 import { ResponseWithParams } from 'types';
 import { HotNews } from 'types/models/hotNews';
 import { News } from 'types/models/news';
@@ -63,14 +63,14 @@ const newsSlice = createSlice({
       state.isInitialized = true;
     },
 
-    [fetchNewsByCategory.pending.type]: state => {
+    [fetchNewsWithParams.pending.type]: state => {
       state.isLoading = true;
     },
-    [fetchNewsByCategory.rejected.type]: (state, action: PayloadAction<string>) => {
+    [fetchNewsWithParams.rejected.type]: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
       state.isLoading = false;
     },
-    [fetchNewsByCategory.fulfilled.type]: (
+    [fetchNewsWithParams.fulfilled.type]: (
       state,
       action: PayloadAction<ResponseWithParams>,
     ) => {

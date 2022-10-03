@@ -9,7 +9,7 @@ import { Title } from 'components/title/Title';
 import { MAX_PAGE_NUMBER } from 'globalConstants';
 import { useAppDispatch } from 'hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector/useAppSelector';
-import { fetchNewsByCategory } from 'store/reducers/actionCreators';
+import { fetchNewsWithParams } from 'store/reducers/actionCreators';
 import { setRequestParamsPageNumber } from 'store/reducers/NewsSlice';
 import { selectCurrentNews, selectRequestParams } from 'store/selectors';
 import { ReturnComponentType } from 'types';
@@ -50,7 +50,7 @@ export const CommonNewsPage = (): ReturnComponentType => {
     };
 
     setSearchParams({ page_number: `${page_number}` });
-    dispatch(fetchNewsByCategory(params));
+    dispatch(fetchNewsWithParams(params));
   }, [currentPath, page_number, category]);
 
   return (

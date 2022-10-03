@@ -1,0 +1,9 @@
+@import "src/common/style/variables";
+
+.searchNews {
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+}
+

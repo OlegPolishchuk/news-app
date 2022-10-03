@@ -1,4 +1,6 @@
 @import "common/style/mixins";
+@import "common/style/variables";
+
 * {
   box-sizing: border-box;
 }
@@ -22,5 +24,9 @@ input {
 
 .app {
   @include container();
+}
+
+.highlight {
+  background: $categoriesLineColor;
 }
 
