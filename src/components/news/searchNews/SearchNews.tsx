@@ -20,7 +20,7 @@ export const SearchNews = React.memo((): ReturnComponentType => {
 
   useEffect(() => {
     dispatch(fetchNewsWithParams({ keywords } as RequestParams));
-  }, []);
+  }, [keywords]);
 
   return (
     <>
