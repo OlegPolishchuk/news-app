@@ -1,4 +1,9 @@
 @import "src/common/style/variables";
+
+.search_wrapper {
+  position: relative;
+}
+
 .search {
   padding: 10px 10px;
   border-radius: 8px;
@@ -9,5 +14,32 @@
 
   &:focus {
     border: 1px solid #B9B9B9FF;
+  }
+}
+
+.search_error {
+  position: absolute;
+  top: 0;
+  right: -245px;
+  padding: 10px;
+
+  border-radius: 8px;
+
+  background: rgba(0,0,0,.1);
+
+  color: $errorColor;
+
+  p {
+    margin: 0;
+  }
+
+  .search_wrapper_triangle {
+    display: inline-block;
+    border: 8px solid transparent;
+    border-right: 10px solid rgba(0,0,0,.1);
+
+    position: absolute;
+    top: 12px;
+    left: -18px;
   }
 }
