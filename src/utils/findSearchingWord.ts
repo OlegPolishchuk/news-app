@@ -6,7 +6,7 @@ export const findSearchingWord = (
   searchingWord: string,
   className: string,
 ): News[] => {
-  const regExp = new RegExp(searchingWord, 'gi');
+  const regExp = searchingWord.split('%').map(word => new RegExp(word, 'gi'));
 
   return news.map(news => {
     const title = wrapWordInHTML(news.title, regExp, className);

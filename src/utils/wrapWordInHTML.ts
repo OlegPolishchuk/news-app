@@ -1,16 +1,20 @@
 export const wrapWordInHTML = (
   string: string,
-  regExp: RegExp,
+  regExps: RegExp[],
   className: string,
 ): string => {
   return string
     .split(' ')
     .map(word => {
-      if (regExp.test(word)) {
-        return `<span className=${className}>${word}</span>`;
-      }
+      let result = word;
 
-      return word;
+      regExps.forEach(regExp => {
+        if (regExp.test(word)) {
+          result = `<span className=${className}>${word}</span>`;
+        }
+      });
+
+      return result;
     })
     .join(' ');
 };

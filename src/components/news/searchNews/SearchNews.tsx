@@ -16,10 +16,12 @@ export const SearchNews = React.memo((): ReturnComponentType => {
   const keywords = useAppSelector(selectSearchParamsKeywords);
   const news = useAppSelector(selectCurrentNews);
 
-  const highlightedNews = findSearchingWord(news, keywords, 'highlight');
+  const processedKeywords = keywords.replaceAll(' ', '%');
+
+  const highlightedNews = findSearchingWord(news, processedKeywords, 'highlight');
 
   useEffect(() => {
-    dispatch(fetchNewsWithParams({ keywords } as RequestParams));
+    dispatch(fetchNewsWithParams({ keywords: processedKeywords } as RequestParams));
   }, [keywords]);
 
   return (
