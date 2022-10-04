@@ -1,6 +1,6 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import s from './Search.module.scss';
 
@@ -13,6 +13,8 @@ import { ReturnComponentType } from 'types';
 export const Search = (): ReturnComponentType => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const location = useLocation();
 
   const keyWords = useAppSelector(selectSearchParamsKeywords);
 
@@ -37,6 +39,12 @@ export const Search = (): ReturnComponentType => {
       }
     }
   };
+
+  useEffect(() => {
+    if (location.pathname !== '/searchNews') {
+      setValue('');
+    }
+  }, [location.pathname]);
 
   return (
     <div className={s.search_wrapper}>
