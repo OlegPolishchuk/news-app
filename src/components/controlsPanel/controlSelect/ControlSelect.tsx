@@ -42,6 +42,12 @@ export const ControlSelect = React.memo(
 
     const handleShowOption = (): void => {};
 
+    const handleClickOptionsList = (
+      e: React.MouseEvent<HTMLUListElement, MouseEvent>,
+    ): void => {
+      e.stopPropagation();
+    };
+
     return (
       <div className={s.select_wrapper} id={id}>
         <div className={s.select_label_wrapper}>
@@ -56,7 +62,12 @@ export const ControlSelect = React.memo(
             {labelTitle}
           </button>
         </div>
-        <ul className={`${s.select} ${isOpen ? s.select_visible : ''}`}>
+        <ul
+          role="menu"
+          onKeyPress={() => {}}
+          onClick={handleClickOptionsList}
+          className={`${s.select} ${isOpen ? s.select_visible : ''}`}
+        >
           {options.map(option => (
             <div key={option.toString()} className={s.select_option}>
               <label>

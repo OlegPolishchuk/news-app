@@ -76,6 +76,16 @@ export const ControlsPanel = React.memo((): ReturnComponentType => {
       if (element.id === ID_FOR_CONTROL_SELECT_LANGUAGE) {
         setIsLanguageListOpen(isOpen => !isOpen);
       }
+
+      if (
+        element.id !== ID_FOR_CONTROL_SELECT_REGIONS &&
+        element.id !== ID_FOR_CONTROL_SELECT_LANGUAGE &&
+        element.id !== ID_FOR_CONTROL_SELECT_CATEGORY
+      ) {
+        setIsCategoryListOpen(false);
+        setIsLanguageListOpen(false);
+        setIsRegionsListOpen(false);
+      }
     };
 
     window.addEventListener('click', toggleOptionsList);
