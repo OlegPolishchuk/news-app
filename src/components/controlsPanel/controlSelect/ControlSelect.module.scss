@@ -48,6 +48,7 @@
   border: none;
   background: #fff;
   cursor: pointer;
+  pointer-events: none;
 
   box-shadow: 0 0 3px rgba(0, 0, 0, .3);
 
@@ -56,6 +57,7 @@
 
 .select_visible {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .select_option {
