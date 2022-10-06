@@ -61,11 +61,12 @@
 }
 
 .select_option {
-  padding: 8px;
   color: $textColor;
   cursor: pointer;
 
   label {
+    padding: 8px;
+
     display: inline-block;
     width: 100%;
     cursor: pointer;

@@ -17,7 +17,7 @@ interface Props {
 
 export const ControlSelect = React.memo(
   ({ options, onChangeOption, value, label, isOpen, id }: Props): ReturnComponentType => {
-    const arrayOfValues = value.split(' ');
+    const arrayOfValues = value.split(',');
     const labelTitle =
       arrayOfValues.length === 1 ? arrayOfValues : `${arrayOfValues[0]}...`;
 
@@ -29,14 +29,14 @@ export const ControlSelect = React.memo(
       let newCurrentValue;
 
       if (event.currentTarget.checked) {
-        newCurrentValue = `${event.target.value} ${value}`;
+        newCurrentValue = `${event.target.value},${value}`;
       } else {
         newCurrentValue = value
-          .split(' ')
+          .split(',')
           .filter(value => value !== event.target.value)
-          .join(' ');
+          .join(',');
       }
-
+      console.log(`newCurrentValue => ${newCurrentValue}`);
       onChangeOption(newCurrentValue);
     };
 
