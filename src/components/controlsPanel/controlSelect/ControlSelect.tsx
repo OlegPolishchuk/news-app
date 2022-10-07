@@ -62,18 +62,20 @@ export const ControlSelect = React.memo(
     };
 
     return (
-      <div className={s.select_wrapper} id={id}>
-        <div className={s.select_label_wrapper}>
-          <span className={s.select_label}>{label}</span>
-          <button
-            id={id}
-            className={s.select_currentOption}
-            type="button"
-            style={arrowBgStyle}
-            onClick={handleShowOption}
-          >
-            {labelTitle}
-          </button>
+      <div>
+        <div className={s.select_wrapper} id={id}>
+          <div className={s.select_label_wrapper}>
+            <span className={s.select_label}>{label}</span>
+            <button
+              id={id}
+              className={s.select_currentOption}
+              type="button"
+              style={arrowBgStyle}
+              onClick={handleShowOption}
+            >
+              {labelTitle}
+            </button>
+          </div>
         </div>
         <ul
           role="menu"
