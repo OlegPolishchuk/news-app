@@ -19,7 +19,7 @@ import {
 import { useAppDispatch } from 'hooks';
 import { setRequestParams } from 'store/reducers/NewsSlice';
 import { RequestParams, ReturnComponentType } from 'types';
-import { getValuesCode, replaceSymbol } from 'utils';
+import { getCodeByValue, replaceSymbol } from 'utils';
 
 const ID_FOR_CONTROL_SELECT_CATEGORY = 'ControlSelect_Category';
 const ID_FOR_CONTROL_SELECT_REGIONS = 'ControlSelect_Regions';
@@ -74,10 +74,10 @@ export const ControlsPanel = React.memo((): ReturnComponentType => {
     event.preventDefault();
 
     const languages = controlsState.language.split(',');
-    const languagesCode = getValuesCode(languages, LANGUAGES_CODE);
+    const languagesCode = getCodeByValue(languages, LANGUAGES_CODE);
 
     const regions = controlsState.region.split(',');
-    const regionsCode = getValuesCode(regions, REGIONS_CODE);
+    const regionsCode = getCodeByValue(regions, REGIONS_CODE);
 
     const requestParams = {
       category: replaceSymbol(controlsState.category, ',', '%'),

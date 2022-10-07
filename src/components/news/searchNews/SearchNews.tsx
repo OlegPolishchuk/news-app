@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import s from './SearchNews.module.scss';
 
+import { SearchParamsDescription } from 'components/news/searchParamsDescription/SearchParamsDescription';
 import { SingleNews } from 'components/news/singleNews/SingleNews';
 import { Title } from 'components/title/Title';
 import { useAppDispatch, useAppSelector } from 'hooks';
@@ -26,7 +27,6 @@ export const SearchNews = React.memo((): ReturnComponentType => {
   const news = useAppSelector(selectCurrentNews);
 
   const processedKeywords = keywords.replaceAll(' ', '%');
-
   const highlightedNews =
     keywords !== '' ? findSearchingWord(news, processedKeywords, 'highlight') : news;
 
@@ -44,6 +44,11 @@ export const SearchNews = React.memo((): ReturnComponentType => {
   return (
     <>
       <Title title="Searching news" />
+      <SearchParamsDescription
+        category={category}
+        country={country}
+        language={language}
+      />
       <div className={s.searchNews}>
         {highlightedNews.map(news => (
           <SingleNews
