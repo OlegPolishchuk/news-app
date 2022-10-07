@@ -159,7 +159,9 @@ export const ControlsPanel = React.memo((): ReturnComponentType => {
           id={ID_FOR_CONTROL_SELECT_LANGUAGE}
           innerInputType="radio"
         />
-        <button type="submit">Save</button>
+        <button className={s.controlPanel_saveBtn} type="submit">
+          Save
+        </button>
       </form>
     </div>
   );
