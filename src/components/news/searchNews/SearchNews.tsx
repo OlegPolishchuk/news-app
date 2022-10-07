@@ -46,11 +46,13 @@ export const SearchNews = React.memo((): ReturnComponentType => {
   return (
     <>
       <Title title="Searching news" />
-      <SearchParamsDescription
-        category={category}
-        country={country}
-        language={language}
-      />
+      {!keywords && (
+        <SearchParamsDescription
+          category={category}
+          country={country}
+          language={language}
+        />
+      )}
       {news.length > 0 ? (
         <div className={s.searchNews}>
           {highlightedNews.map(news => (
