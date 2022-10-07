@@ -32,7 +32,24 @@
   margin-right: 10px;
   padding: 8px 0;
 
+  position: relative;
+
   color: $themeColor;
+}
+
+.select_currentOption_active {
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    z-index: 11;
+
+    height: 4px;
+    width: 150px;
+    background: #fff;
+  }
 }
 
 .select {
