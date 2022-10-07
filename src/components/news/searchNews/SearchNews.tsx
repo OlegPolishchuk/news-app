@@ -49,16 +49,29 @@ export const SearchNews = React.memo((): ReturnComponentType => {
         country={country}
         language={language}
       />
-      <div className={s.searchNews}>
-        {highlightedNews.map(news => (
-          <SingleNews
-            article={news}
-            type="small"
-            key={news.id}
-            isSearching={keywords !== ''}
-          />
-        ))}
-      </div>
+      {news.length > 0 ? (
+        <div className={s.searchNews}>
+          {highlightedNews.map(news => (
+            <SingleNews
+              article={news}
+              type="small"
+              key={news.id}
+              isSearching={keywords !== ''}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className={s.searchNews_error}>
+          <h2>Sorry!</h2>
+          <h2> We do not have any news with this parameters right now</h2>
+          <p>
+            We always have news with these: Category:{' '}
+            <span className={s.searchNews_error_category}>general</span>; Region:{' '}
+            <span className={s.searchNews_error_category}>International</span>; Language:{' '}
+            <span className={s.searchNews_error_category}>English</span>
+          </p>
+        </div>
+      )}
     </>
   );
 });
