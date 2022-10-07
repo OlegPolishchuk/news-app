@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { DEFAULT_LANGUAGE_CODE } from 'globalConstants';
 import { fetchNews, fetchNewsWithParams } from 'store/reducers/actionCreators';
 import { ResponseWithParams } from 'types';
 import { HotNews } from 'types/models/hotNews';
@@ -22,6 +23,8 @@ const initialState: InitialState = {
     page_number: 1,
     category: 'general',
     keywords: '',
+    country: 'INT',
+    language: DEFAULT_LANGUAGE_CODE,
   } as RequestParams,
   isInitialized: false,
 };
@@ -95,3 +98,4 @@ export const newsReducer = newsSlice.reducer;
 
 export const { setRequestParamsKeywords } = newsSlice.actions;
 export const { setRequestParamsPageNumber } = newsSlice.actions;
+export const { setRequestParams } = newsSlice.actions;

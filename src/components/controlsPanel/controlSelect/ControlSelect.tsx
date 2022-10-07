@@ -36,7 +36,7 @@ export const ControlSelect = React.memo(
           .filter(value => value !== event.target.value)
           .join(',');
       }
-      console.log(`newCurrentValue => ${newCurrentValue}`);
+
       onChangeOption(newCurrentValue);
     };
 

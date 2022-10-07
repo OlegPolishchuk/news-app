@@ -9,3 +9,7 @@ export { selectCurrentNews } from 'store/selectors/currentNews/selectCurrentNews
 export { selectRequestParams } from 'store/selectors/currentNews/selectRequestParams';
 
 export { selectSearchParamsKeywords } from './searchParams/selectSearchParamsKeywords';
+export { selectSearchParamsCategory } from './searchParams/selectSearchParamsCategory';
+export { selectSearchParamsCountry } from './searchParams/selectSearchParamsCountry';
+export { selectSearchParamsLanguage } from './searchParams/selectSearchParamsLanguage';
+export { selectSearchParamsPageNumber } from './searchParams/selectSearchParamsPageNumber';

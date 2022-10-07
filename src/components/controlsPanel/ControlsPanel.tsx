@@ -1,23 +1,35 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
 import s from './ControlsPanel.module.scss';
 
 import { ControlSelect } from 'components/controlsPanel/controlSelect/ControlSelect';
+import { Path } from 'enums';
 import {
   CATEGORIES,
   DEFAULT_CATEGORIES,
   DEFAULT_LANGUAGE,
   DEFAULT_REGION,
   LANGUAGES,
+  LANGUAGES_CODE,
   REGIONS,
+  REGIONS_CODE,
 } from 'globalConstants';
-import { ReturnComponentType } from 'types';
+import { useAppDispatch } from 'hooks';
+import { setRequestParams } from 'store/reducers/NewsSlice';
+import { RequestParams, ReturnComponentType } from 'types';
+import { getValuesCode, replaceSymbol } from 'utils';
 
 const ID_FOR_CONTROL_SELECT_CATEGORY = 'ControlSelect_Category';
 const ID_FOR_CONTROL_SELECT_REGIONS = 'ControlSelect_Regions';
 const ID_FOR_CONTROL_SELECT_LANGUAGE = 'ControlSelect_Language';
 
 export const ControlsPanel = React.memo((): ReturnComponentType => {
+  const dispatch = useAppDispatch();
+
+  const navigate = useNavigate();
+
   const [controlsState, setControlsState] = useState({
     category: DEFAULT_CATEGORIES,
     region: DEFAULT_REGION,
@@ -60,7 +72,22 @@ export const ControlsPanel = React.memo((): ReturnComponentType => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log(controlsState);
+
+    const languages = controlsState.language.split(',');
+    const languagesCode = getValuesCode(languages, LANGUAGES_CODE);
+
+    const regions = controlsState.region.split(',');
+    const regionsCode = getValuesCode(regions, REGIONS_CODE);
+
+    const requestParams = {
+      category: replaceSymbol(controlsState.category, ',', '%'),
+      language: replaceSymbol(languagesCode.join(','), ',', '%'),
+      country: replaceSymbol(regionsCode.join(','), ',', '%'),
+    } as RequestParams;
+
+    console.log(requestParams);
+    dispatch(setRequestParams(requestParams));
+    navigate(Path.SearchNews);
   };
 
   useEffect(() => {

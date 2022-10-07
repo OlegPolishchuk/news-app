@@ -12,7 +12,7 @@ import { useAppSelector } from 'hooks/useAppSelector/useAppSelector';
 import { fetchNewsWithParams } from 'store/reducers/actionCreators';
 import { setRequestParamsPageNumber } from 'store/reducers/NewsSlice';
 import { selectCurrentNews, selectRequestParams } from 'store/selectors';
-import { ReturnComponentType } from 'types';
+import { RequestParams, ReturnComponentType } from 'types';
 
 export const CommonNewsPage = (): ReturnComponentType => {
   const dispatch = useAppDispatch();
@@ -47,7 +47,7 @@ export const CommonNewsPage = (): ReturnComponentType => {
       page_number,
       keywords,
       category: categoryName,
-    };
+    } as RequestParams;
 
     setSearchParams({ page_number: `${page_number}` });
     dispatch(fetchNewsWithParams(params));

@@ -1,3 +1,9 @@
 export { newsSlicer } from './newsSlicer';
 export { getRandomNews } from './getRandomNews';
 export { deleteHTMLTagFromText } from 'utils/deleteHTMLTagFromText';
+export { replaceSymbol } from './replaceSymbol';
+export { wrapWordInHTML } from './wrapWordInHTML';
+export { getValuesCode } from './getValuesCode';
+export { findSearchingWord } from './findSearchingWord';
+export { dateStringSlicer } from './dateStringSlicer';
+export { wrappedSearchingWord } from './wrappedSearchingWord';
