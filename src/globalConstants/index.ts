@@ -7,7 +7,7 @@ export const DEFAULT_PAGINATION_OFFSET = 0;
 export const DEFAULT_LANGUAGE = 'English';
 export const DEFAULT_LANGUAGE_CODE = 'en';
 export const DEFAULT_CATEGORIES = 'general';
-export const DEFAULT_REGION = 'All';
+export const DEFAULT_REGION = 'International';
 
 export const CATEGORIES = [
   'regional',

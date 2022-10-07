@@ -13,10 +13,19 @@ interface Props {
   label?: string;
   isOpen: boolean;
   id: string;
+  innerInputType?: 'radio' | 'checkbox';
 }
 
 export const ControlSelect = React.memo(
-  ({ options, onChangeOption, value, label, isOpen, id }: Props): ReturnComponentType => {
+  ({
+    options,
+    onChangeOption,
+    value,
+    label,
+    isOpen,
+    id,
+    innerInputType,
+  }: Props): ReturnComponentType => {
     const arrayOfValues = value.split(',');
     const labelTitle =
       arrayOfValues.length === 1 ? arrayOfValues : `${arrayOfValues[0]}...`;
@@ -25,7 +34,7 @@ export const ControlSelect = React.memo(
       backgroundImage: `url(${isOpen ? iconArrowUp : iconArrowDown})`,
     };
 
-    const handleChangeOption = (event: ChangeEvent<HTMLInputElement>): void => {
+    const handleChangeCheckbox = (event: ChangeEvent<HTMLInputElement>): void => {
       let newCurrentValue;
 
       if (event.currentTarget.checked) {
@@ -46,6 +55,10 @@ export const ControlSelect = React.memo(
       e: React.MouseEvent<HTMLUListElement, MouseEvent>,
     ): void => {
       e.stopPropagation();
+    };
+
+    const handleChangeRadio = (event: ChangeEvent<HTMLInputElement>): void => {
+      onChangeOption(event.currentTarget.value);
     };
 
     return (
@@ -70,15 +83,28 @@ export const ControlSelect = React.memo(
         >
           {options.map(option => (
             <div key={option.toString()} className={s.select_option}>
-              <label>
-                <input
-                  type="checkbox"
-                  value={option}
-                  onChange={handleChangeOption}
-                  checked={value.includes(option)}
-                />
-                <span>{option}</span>
-              </label>
+              {innerInputType === 'checkbox' ? (
+                <label>
+                  <input
+                    type={innerInputType}
+                    value={option}
+                    onChange={handleChangeCheckbox}
+                    checked={value.includes(option)}
+                  />
+                  <span>{option}</span>
+                </label>
+              ) : (
+                <label>
+                  <input
+                    type={innerInputType}
+                    value={option}
+                    name={label}
+                    onChange={handleChangeRadio}
+                    checked={value === option}
+                  />
+                  <span>{option}</span>
+                </label>
+              )}
             </div>
           ))}
         </ul>

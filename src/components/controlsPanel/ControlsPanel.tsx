@@ -130,6 +130,7 @@ export const ControlsPanel = React.memo((): ReturnComponentType => {
           value={controlsState.category}
           isOpen={isCategoryListOpen}
           id={ID_FOR_CONTROL_SELECT_CATEGORY}
+          innerInputType="checkbox"
         />
         <ControlSelect
           label="Region:"
@@ -138,6 +139,7 @@ export const ControlsPanel = React.memo((): ReturnComponentType => {
           value={controlsState.region}
           isOpen={isRegionsListOpen}
           id={ID_FOR_CONTROL_SELECT_REGIONS}
+          innerInputType="radio"
         />
         <ControlSelect
           label="Language:"
@@ -146,6 +148,7 @@ export const ControlsPanel = React.memo((): ReturnComponentType => {
           value={controlsState.language}
           isOpen={isLanguageListOpen}
           id={ID_FOR_CONTROL_SELECT_LANGUAGE}
+          innerInputType="radio"
         />
         <button type="submit">Save</button>
       </form>
