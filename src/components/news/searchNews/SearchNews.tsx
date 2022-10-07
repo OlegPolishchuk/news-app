@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 
+import { NavLink } from 'react-router-dom';
+
 import s from './SearchNews.module.scss';
 
 import { SearchParamsDescription } from 'components/news/searchParamsDescription/SearchParamsDescription';
@@ -70,6 +72,9 @@ export const SearchNews = React.memo((): ReturnComponentType => {
             <span className={s.searchNews_error_category}>International</span>; Language:{' '}
             <span className={s.searchNews_error_category}>English</span>
           </p>
+          <NavLink to="/" className={s.searchNews_error_redirectButton}>
+            Main
+          </NavLink>
         </div>
       )}
     </>

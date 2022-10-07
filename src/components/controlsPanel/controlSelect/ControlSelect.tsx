@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 
 import s from './ControlSelect.module.scss';
 
@@ -26,6 +26,8 @@ export const ControlSelect = React.memo(
     id,
     innerInputType,
   }: Props): ReturnComponentType => {
+    const [isFirst, setIsFirst] = useState(true);
+
     const arrayOfValues = value.split(',');
     const labelTitle =
       arrayOfValues.length === 1 ? arrayOfValues : `${arrayOfValues[0]}...`;
@@ -38,7 +40,7 @@ export const ControlSelect = React.memo(
       let newCurrentValue;
 
       if (event.currentTarget.checked) {
-        newCurrentValue = `${event.target.value},${value}`;
+        newCurrentValue = isFirst ? event.target.value : `${event.target.value},${value}`;
       } else {
         newCurrentValue = value
           .split(',')
@@ -46,6 +48,7 @@ export const ControlSelect = React.memo(
           .join(',');
       }
 
+      setIsFirst(false);
       onChangeOption(newCurrentValue);
     };
 
