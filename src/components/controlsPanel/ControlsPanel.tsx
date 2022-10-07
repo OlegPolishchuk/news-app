@@ -96,12 +96,21 @@ export const ControlsPanel = React.memo((): ReturnComponentType => {
 
       if (element.id === ID_FOR_CONTROL_SELECT_CATEGORY) {
         setIsCategoryListOpen(isOpen => !isOpen);
+
+        setIsRegionsListOpen(false);
+        setIsLanguageListOpen(false);
       }
       if (element.id === ID_FOR_CONTROL_SELECT_REGIONS) {
         setIsRegionsListOpen(isOpen => !isOpen);
+
+        setIsCategoryListOpen(false);
+        setIsLanguageListOpen(false);
       }
       if (element.id === ID_FOR_CONTROL_SELECT_LANGUAGE) {
         setIsLanguageListOpen(isOpen => !isOpen);
+
+        setIsCategoryListOpen(false);
+        setIsRegionsListOpen(false);
       }
 
       if (

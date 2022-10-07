@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent } from 'react';
 
 import s from './ControlSelect.module.scss';
 
@@ -26,8 +26,6 @@ export const ControlSelect = React.memo(
     id,
     innerInputType,
   }: Props): ReturnComponentType => {
-    const [active, setActive] = useState(false);
-
     const arrayOfValues = value.split(',');
     const labelTitle =
       arrayOfValues.length === 1 ? arrayOfValues : `${arrayOfValues[0]}...`;
@@ -51,10 +49,6 @@ export const ControlSelect = React.memo(
       onChangeOption(newCurrentValue);
     };
 
-    const setActiveClassName = (): void => {
-      setActive(!active);
-    };
-
     const handleClickOptionsList = (
       e: React.MouseEvent<HTMLUListElement, MouseEvent>,
     ): void => {
@@ -73,11 +67,10 @@ export const ControlSelect = React.memo(
             <button
               id={id}
               className={`${s.select_currentOption} ${
-                active ? s.select_currentOption_active : ''
+                isOpen ? s.select_currentOption_active : ''
               }`}
               type="button"
               style={arrowBgStyle}
-              onClick={setActiveClassName}
             >
               {labelTitle}
             </button>
