@@ -85,7 +85,6 @@ export const ControlsPanel = React.memo((): ReturnComponentType => {
       country: replaceSymbol(regionsCode.join(','), ',', '%'),
     } as RequestParams;
 
-    console.log(requestParams);
     dispatch(setRequestParams(requestParams));
     navigate(Path.SearchNews);
   };
@@ -160,7 +159,7 @@ export const ControlsPanel = React.memo((): ReturnComponentType => {
           innerInputType="radio"
         />
         <button className={s.controlPanel_saveBtn} type="submit">
-          Save
+          Apply
         </button>
       </form>
     </div>

@@ -1,3 +1,5 @@
+@import "src/common/style/variables";
+
 .controlPanel {
   padding: 10px 0;
 }
@@ -12,5 +14,18 @@
 }
 
 .controlPanel_saveBtn {
+  border: none;
+  outline: none;
+
+  border-radius: 3px;
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+
+  cursor: pointer;
   margin-left: auto;
+
+  transition: all .2s ease;
+
+  &:hover {
+    box-shadow: 0 0 3px rgba(0,0,0,.5);
+  }
 }
