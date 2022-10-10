@@ -53,8 +53,6 @@
 }
 
 .select {
-  @include container();
-
   position: absolute;
   top: 35px;
   left: 0;

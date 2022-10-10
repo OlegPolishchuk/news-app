@@ -1,14 +1,18 @@
 
 .weatherWidget {
-  padding-left: 35px;
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: contain;
+  img {
+    width: 35px;
+    margin-right: 10px;
+  }
 }
 
 .weatherWidget_title {
   margin: 0;
   font-size: 26px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .weatherWidget_c {

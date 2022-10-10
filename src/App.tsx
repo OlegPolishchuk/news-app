@@ -1,7 +1,7 @@
 import React from 'react';
+
 import 'normalize.css';
 import 'index.scss';
-
 import { ControlsPanel } from 'components/controlsPanel/ControlsPanel';
 import { Footer } from 'components/footer/Footer';
 import { Header } from 'components/header/Header';

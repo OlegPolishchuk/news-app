@@ -1,4 +1,5 @@
 @import "src/common/style/variables";
+
 .nav {
   display: flex;
 
@@ -22,6 +23,12 @@
 
   .active {
     color: $themeColor;
+  }
+}
+
+@media (max-width: $xl) {
+  .nav_wrapper {
+    align-self: flex-end;
   }
 }
 

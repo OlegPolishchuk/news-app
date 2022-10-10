@@ -30,3 +30,9 @@ input {
   background: $categoriesLineColor;
 }
 
+@media (max-width: $xl) {
+  .app {
+    @include container(98%);
+  }
+}
+

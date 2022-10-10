@@ -9,7 +9,7 @@ import { ReturnComponentType } from 'types';
 
 export const Nav = (): ReturnComponentType => {
   return (
-    <nav>
+    <nav className={s.nav_wrapper}>
       <ul className={s.nav}>
         <NavLink
           to={Path.MainPage}

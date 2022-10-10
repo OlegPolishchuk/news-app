@@ -5,7 +5,7 @@ import { DEFAULT_LANGUAGE_CODE } from 'globalConstants';
 export const instance = axios.create({
   baseURL: 'https://api.currentsapi.services/v1/',
   params: {
-    apiKey: 'pUcz8WxOfLFkfyhnRaR9VZNVQ2C5_ZJKVYuHgv2CilMpmJ8d',
+    apiKey: process.env.REACT_APP_API_KEY,
     language: DEFAULT_LANGUAGE_CODE,
   },
 });

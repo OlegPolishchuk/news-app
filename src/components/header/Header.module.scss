@@ -1,9 +1,24 @@
 @import "src/common/style/variables";
 @import "src/common/style/mixins";
 
-.header > div {
+.header_mainHeader {
   @include  headerBlock();
 
   border-bottom: 1px solid $textColor;
 }
 
+.header_widgets {
+  @include headerBlock();
+
+  border-bottom: 1px solid $textColor;
+}
+
+
+@media (max-width: $xl) {
+  .header_mainHeader {
+    flex-direction: column;
+
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
