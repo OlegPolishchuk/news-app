@@ -1,7 +1,8 @@
 @mixin container($width: 1200px){
-  width: $width;
+  max-width: $width;
   margin: 0 auto;
 
+  padding: 0 10px;
 }
 
 @mixin headerBlock(){

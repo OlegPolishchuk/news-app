@@ -102,3 +102,41 @@
     background: #f6f6f6;
   }
 }
+
+@media (max-width: $lg) {
+  .select_option {
+    min-width: 150px;
+  }
+}
+
+@media (max-width: $md) {
+  .select_box {
+    position: relative;
+  }
+
+  .select_wrapper {
+    max-width: 250px;
+  }
+
+  .select {
+    max-height: 400px;
+    overflow: scroll;
+  }
+
+  .select_label_wrapper {
+    justify-content: space-between;
+  }
+
+  .select_currentOption_active {
+    &:after {
+      bottom: -2px;
+      left: 100px;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .select {
+    min-width: 100%;
+  }
+}

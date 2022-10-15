@@ -63,7 +63,7 @@ export const ControlSelect = React.memo(
     };
 
     return (
-      <div>
+      <div className={s.select_box}>
         <div className={s.select_wrapper} id={id}>
           <div className={s.select_label_wrapper}>
             <span className={s.select_label}>{label}</span>

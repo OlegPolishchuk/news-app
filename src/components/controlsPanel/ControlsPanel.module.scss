@@ -31,3 +31,16 @@
     box-shadow: 0 0 3px rgba(0,0,0,.3);
   }
 }
+
+@media (max-width: $lg) {
+  .controlPanel_form {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: $md){
+  .controlPanel_form {
+    flex-direction: column;
+  }
+}

@@ -28,7 +28,15 @@
 
 @media (max-width: $xl) {
   .nav_wrapper {
-    align-self: flex-end;
+    position: absolute;
+    top: 20px;
+    right: -50px;
+
+    border: 1px solid;
+  }
+
+  .nav {
+    flex-direction: column;
   }
 }
 
