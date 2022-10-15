@@ -43,3 +43,10 @@
     left: -18px;
   }
 }
+
+@media (max-width: $xl) {
+  .search_wrapper {
+    align-self: flex-end;
+    margin-top: 15px;
+  }
+}

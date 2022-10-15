@@ -16,9 +16,14 @@
 
 @media (max-width: $xl) {
   .header_mainHeader {
-    flex-direction: column;
+    flex-wrap: wrap;
 
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: $lg) {
+  .header_mainHeader {
+    flex-direction: column;
   }
 }

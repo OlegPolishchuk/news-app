@@ -26,17 +26,16 @@
   }
 }
 
-@media (max-width: $xl) {
+
+@media (max-width: $lg) {
   .nav_wrapper {
-    position: absolute;
-    top: 20px;
-    right: -50px;
-
-    border: 1px solid;
+    margin-top: 30px;
   }
+}
 
-  .nav {
-    flex-direction: column;
+@media (max-width: $md) {
+  .nav_wrapper {
+
   }
 }
 
