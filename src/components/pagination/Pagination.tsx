@@ -27,7 +27,6 @@ export const Pagination = ({
     isBreak: boolean;
     isActive: boolean;
   }): void => {
-    // return buttons index (1 => 0, 2 => 1, 3 => 2 ...)
     onClickCallback(e.selected + 1);
   };
 
@@ -36,6 +35,7 @@ export const Pagination = ({
       pageCount={pageCount}
       forcePage={currentPage}
       breakLabel="..."
+      marginPagesDisplayed={2}
       renderOnZeroPageCount={() => null}
       onPageChange={handlePageClick}
       className={s.pagination}

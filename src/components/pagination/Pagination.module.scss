@@ -49,3 +49,9 @@
 
   opacity: .6;
 }
+
+@media (max-width: $lg) {
+  .pagination_pageLink {
+    padding: 8px 12px;
+  }
+}
