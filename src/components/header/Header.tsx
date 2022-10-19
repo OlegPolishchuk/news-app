@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import s from './Header.module.scss';
 
@@ -13,14 +13,19 @@ import { ReturnComponentType } from 'types';
 
 export const Header = React.memo((): ReturnComponentType => {
   console.log(`header rendered`);
+  const [isToggleMenuBtnShow, setIsToggleMenuBtnShow] = useState(false);
+
+  const handleToggleMenuBtnClick = (): void => {
+    setIsToggleMenuBtnShow(!isToggleMenuBtnShow);
+  };
 
   return (
     <header className={s.header}>
       <div className={s.header_mainHeader}>
         <Logo />
-        <Nav />
+        <Nav isMenuShowOnSmallScreen={isToggleMenuBtnShow} />
         <Search />
-        <ToggleBtn toggle={() => {}} />
+        <ToggleBtn toggle={handleToggleMenuBtnClick} />
       </div>
       <div className={s.header_widgets}>
         <TodayDate />

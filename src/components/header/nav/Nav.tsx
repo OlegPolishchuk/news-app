@@ -7,53 +7,81 @@ import s from './Nav.module.scss';
 import { Path } from 'enums';
 import { ReturnComponentType } from 'types';
 
-export const Nav = (): ReturnComponentType => {
+interface Props {
+  isMenuShowOnSmallScreen?: boolean;
+}
+
+export const Nav = ({ isMenuShowOnSmallScreen }: Props): ReturnComponentType => {
+  const showMenuClassName = isMenuShowOnSmallScreen ? s.nav_wrapper : s.nav_wrapper_hide;
+
   return (
-    <nav className={s.nav_wrapper}>
+    <nav className={`${s.nav_wrapper} ${showMenuClassName}`}>
       <ul className={s.nav}>
-        <NavLink
-          to={Path.MainPage}
-          end
-          className={({ isActive }) => (isActive ? s.active : '')}
-        >
-          <li className={s.nav_item}>General</li>
-        </NavLink>
-        <NavLink
-          to={Path.Sports}
-          className={({ isActive }) => (isActive ? s.active : '')}
-        >
-          <li className={s.nav_item}>Sports</li>
-        </NavLink>
-        <NavLink
-          to={Path.Business}
-          className={({ isActive }) => (isActive ? s.active : '')}
-        >
-          <li className={s.nav_item}>Business</li>
-        </NavLink>
-        <NavLink
-          to={Path.Politics}
-          className={({ isActive }) => (isActive ? s.active : '')}
-        >
-          <li className={s.nav_item}>Politics</li>
-        </NavLink>
-        <NavLink
-          to={Path.Health}
-          className={({ isActive }) => (isActive ? s.active : '')}
-        >
-          <li className={s.nav_item}>Health</li>
-        </NavLink>
-        <NavLink
-          to={Path.Science}
-          className={({ isActive }) => (isActive ? s.active : '')}
-        >
-          <li className={s.nav_item}>Science</li>
-        </NavLink>
-        <NavLink
-          to={Path.Technology}
-          className={({ isActive }) => (isActive ? s.active : '')}
-        >
-          <li className={s.nav_item}>Technology</li>
-        </NavLink>
+        <li className={s.nav_item}>
+          <NavLink
+            to={Path.MainPage}
+            end
+            className={({ isActive }) => (isActive ? s.active : '')}
+          >
+            General
+          </NavLink>
+        </li>
+
+        <li className={s.nav_item}>
+          <NavLink
+            to={Path.Sports}
+            className={({ isActive }) => (isActive ? s.active : '')}
+          >
+            Sports
+          </NavLink>
+        </li>
+
+        <li className={s.nav_item}>
+          <NavLink
+            to={Path.Business}
+            className={({ isActive }) => (isActive ? s.active : '')}
+          >
+            Business
+          </NavLink>
+        </li>
+
+        <li className={s.nav_item}>
+          <NavLink
+            to={Path.Politics}
+            className={({ isActive }) => (isActive ? s.active : '')}
+          >
+            Politics
+          </NavLink>
+        </li>
+
+        <li className={s.nav_item}>
+          {' '}
+          <NavLink
+            to={Path.Health}
+            className={({ isActive }) => (isActive ? s.active : '')}
+          >
+            Health{' '}
+          </NavLink>
+        </li>
+
+        <li className={s.nav_item}>
+          {' '}
+          <NavLink
+            to={Path.Science}
+            className={({ isActive }) => (isActive ? s.active : '')}
+          >
+            Science{' '}
+          </NavLink>
+        </li>
+
+        <li className={s.nav_item}>
+          <NavLink
+            to={Path.Technology}
+            className={({ isActive }) => (isActive ? s.active : '')}
+          >
+            Technology
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

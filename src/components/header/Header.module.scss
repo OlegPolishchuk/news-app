@@ -5,6 +5,7 @@
   @include  headerBlock();
 
   border-bottom: 1px solid $textColor;
+  position: relative;
 }
 
 .header_widgets {

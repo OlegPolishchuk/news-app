@@ -3,10 +3,20 @@
 .menu_bar {
   display: none;
 
+  position: absolute;
+  top: 25px;
+  right: 15px;
+
   width: 45px;
   height: 40px;
-  margin: 30px 0 20px 20px;
   cursor: pointer;
+
+  z-index: 10;
+
+  &.fixed {
+    position: fixed;
+    right: 40px;
+  }
 }
 
 .bar {
@@ -18,9 +28,6 @@
   transition: 0.3s ease;
 }
 
-.menu_bar:hover > .bar {
-  box-shadow: 1px 1px 5px rgba(250, 91, 33, .4);
-}
 
 .bar1 {
   transform: translateY(-4px);
