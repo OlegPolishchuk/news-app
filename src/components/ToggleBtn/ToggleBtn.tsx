@@ -1,21 +1,19 @@
-import { useState } from 'react';
-
 import s from 'components/ToggleBtn/ToggleBtn.module.scss';
 import { ReturnComponentType } from 'types';
 
 type ToggleBtnPropsType = {
   toggle: () => void;
-  // wrapped?: boolean;
+  wrapped: boolean;
 };
 
-export const ToggleBtn = ({ toggle }: ToggleBtnPropsType): ReturnComponentType => {
-  const [wrapped, setWrapped] = useState(false);
-
+export const ToggleBtn = ({
+  toggle,
+  wrapped,
+}: ToggleBtnPropsType): ReturnComponentType => {
   const transformedBtnLineClassName = wrapped ? s.change : '';
   const finalBtnClassName = wrapped ? `${s.menu_bar} ${s.fixed}` : s.menu_bar;
 
   const onClickHandler = (): void => {
-    setWrapped(!wrapped);
     toggle();
   };
 

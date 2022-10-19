@@ -9,9 +9,13 @@ import { ReturnComponentType } from 'types';
 
 interface Props {
   isMenuShowOnSmallScreen?: boolean;
+  menuItemClickCallback: () => void;
 }
 
-export const Nav = ({ isMenuShowOnSmallScreen }: Props): ReturnComponentType => {
+export const Nav = ({
+  isMenuShowOnSmallScreen,
+  menuItemClickCallback,
+}: Props): ReturnComponentType => {
   const showMenuClassName = isMenuShowOnSmallScreen ? s.nav_wrapper : s.nav_wrapper_hide;
 
   return (
@@ -19,6 +23,7 @@ export const Nav = ({ isMenuShowOnSmallScreen }: Props): ReturnComponentType => 
       <ul className={s.nav}>
         <li className={s.nav_item}>
           <NavLink
+            onClick={menuItemClickCallback}
             to={Path.MainPage}
             end
             className={({ isActive }) => (isActive ? s.active : '')}
@@ -29,6 +34,7 @@ export const Nav = ({ isMenuShowOnSmallScreen }: Props): ReturnComponentType => 
 
         <li className={s.nav_item}>
           <NavLink
+            onClick={menuItemClickCallback}
             to={Path.Sports}
             className={({ isActive }) => (isActive ? s.active : '')}
           >
@@ -38,6 +44,7 @@ export const Nav = ({ isMenuShowOnSmallScreen }: Props): ReturnComponentType => 
 
         <li className={s.nav_item}>
           <NavLink
+            onClick={menuItemClickCallback}
             to={Path.Business}
             className={({ isActive }) => (isActive ? s.active : '')}
           >
@@ -47,6 +54,7 @@ export const Nav = ({ isMenuShowOnSmallScreen }: Props): ReturnComponentType => 
 
         <li className={s.nav_item}>
           <NavLink
+            onClick={menuItemClickCallback}
             to={Path.Politics}
             className={({ isActive }) => (isActive ? s.active : '')}
           >
@@ -55,27 +63,28 @@ export const Nav = ({ isMenuShowOnSmallScreen }: Props): ReturnComponentType => 
         </li>
 
         <li className={s.nav_item}>
-          {' '}
           <NavLink
+            onClick={menuItemClickCallback}
             to={Path.Health}
             className={({ isActive }) => (isActive ? s.active : '')}
           >
-            Health{' '}
+            Health
           </NavLink>
         </li>
 
         <li className={s.nav_item}>
-          {' '}
           <NavLink
+            onClick={menuItemClickCallback}
             to={Path.Science}
             className={({ isActive }) => (isActive ? s.active : '')}
           >
-            Science{' '}
+            Science
           </NavLink>
         </li>
 
         <li className={s.nav_item}>
           <NavLink
+            onClick={menuItemClickCallback}
             to={Path.Technology}
             className={({ isActive }) => (isActive ? s.active : '')}
           >

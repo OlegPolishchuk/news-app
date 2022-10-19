@@ -8,3 +8,4 @@ export { findSearchingWord } from './findSearchingWord';
 export { dateStringSlicer } from './dateStringSlicer';
 export { wrappedSearchingWord } from './wrappedSearchingWord';
 export { getValueByCode } from './getValueByCode';
+export { getWindowSize } from './getWindowSize';
