@@ -2,7 +2,6 @@ import React from 'react';
 
 import 'normalize.css';
 import 'index.scss';
-import { ControlsPanel } from 'components/controlsPanel/ControlsPanel';
 import { Footer } from 'components/footer/Footer';
 import { Header } from 'components/header/Header';
 import { Pages } from 'components/pages/Pages';
@@ -18,7 +17,6 @@ const App = (): ReturnComponentType => {
     <>
       <div className="app">
         <Header />
-        <ControlsPanel />
         <main>
           <Pages />
         </main>
