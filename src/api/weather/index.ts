@@ -4,7 +4,7 @@ import { WeatherResponse } from 'types/responses/weatherResponse';
 export class WeatherAPI {
   static getWeather(city: string): Promise<WeatherResponse> {
     return weatherInstance
-      .get(`https://api.weatherstack.com/current?`, {
+      .get(`http://api.weatherstack.com/current?`, {
         params: {
           query: city,
         },
