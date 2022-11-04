@@ -17,7 +17,7 @@ export const Weather = (): ReturnComponentType => {
     },
   } as WeatherResponse);
 
-  const imgSrc = data.current.weather_icons
+  const imgSrc = data.current.weather_icons[0].length
     ? data.current.weather_icons[0]
     : weather_icon;
 
