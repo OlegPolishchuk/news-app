@@ -38,3 +38,21 @@
     text-decoration: underline;
   }
 }
+
+@media (max-width: $lg) {
+  .article_content {
+    flex-direction: column;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .article_description {
+    width: 100%;
+  }
+
+  .article_author {
+    margin-top: 15px;
+  }
+}

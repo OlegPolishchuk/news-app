@@ -56,3 +56,15 @@
     align-self: flex-start;
   }
 }
+
+@media (max-width: $sm) {
+  .logo {
+    //margin: 60px auto 0 auto;
+    font-size: 20px;
+  }
+
+  .logo_item {
+    padding: 6px 10px;
+    margin-right: 10px;
+  }
+}

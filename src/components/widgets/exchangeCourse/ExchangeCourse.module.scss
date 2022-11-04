@@ -17,3 +17,13 @@
 .exchangeCourse_drop {
   color: $exchangeDropColor
 }
+
+@media (max-width: $sm) {
+  .exchangeCourse {
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 100%;
+    margin-top: 15px;
+  }
+}

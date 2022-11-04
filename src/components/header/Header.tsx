@@ -15,7 +15,6 @@ import { getWindowSize } from 'utils';
 const LargeScreenSize = 992;
 
 export const Header = React.memo((): ReturnComponentType => {
-  console.log(`header rendered`);
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [isToggleMenuBtnShow, setIsToggleMenuBtnShow] = useState(false);
 

@@ -28,3 +28,9 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: $sm) {
+  .header_widgets {
+    flex-wrap: wrap;
+  }
+}

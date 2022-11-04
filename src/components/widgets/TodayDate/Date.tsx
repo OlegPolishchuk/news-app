@@ -39,7 +39,11 @@ export const TodayDate = (): ReturnComponentType => {
   return (
     <div className={s.dateWidget}>
       <time className={s.dateWidget_date}>
-        {dayOfTheWeek}, {month} {dateOfDay}, {year}
+        <span>{dayOfTheWeek}</span>,{' '}
+        <span>
+          {month} {dateOfDay}
+        </span>
+        , <span>{year}</span>
       </time>
       <p className={s.dateWidget_title}>Today &apos;s paper</p>
     </div>
